@@ -1,0 +1,30 @@
+{
+    "levelNum": 1,
+    "levelGoal": 20,
+    "hasTutorial": true,
+    "tutorialText": "Touch cars to stop them. Slide cars forward to make them go faster.",
+    "rows": 10,
+    "cols": 20,
+    "backgroundColor": "#00a077",
+    "paths": [{
+              "type": "Road",
+              "segments": [
+                           ["{-2,6}", "{22,6}"]
+                           ]
+              }, {
+              "type": "Road",
+              "segments": [
+                           ["{22,4}", "{-2,4}"]
+                           ]
+              }, {
+              "type": "Road",
+              "segments": [
+                           ["{9,12}", "{9,-2}"]
+                           ]
+              }, {
+              "type": "Road",
+              "segments": [
+                           ["{11,-2}", "{11,12}"]
+                           ]
+              }]
+}
