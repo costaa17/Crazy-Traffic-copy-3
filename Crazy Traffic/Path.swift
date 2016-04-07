@@ -35,12 +35,4 @@ class Path {
         return path
     }
     
-    func shouldRunCar() -> Bool{
-        self.interval -= 1
-        if interval <= 0{
-            interval = Useful.random(min: 150,max: 450)
-            return true
-        }
-        return false
-    }
 }

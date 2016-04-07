@@ -239,10 +239,6 @@ class Level: SKSpriteNode {
             let car = node as! Car
             car.update(timeSinceLastUpdate)
         }
-        for  i in 0 ..< self.paths.count {
-            if self.paths[i].shouldRunCar() {
-                let _ = Car(level: self, pathIndex: i)
-            }
-        }
+        
     }
 }

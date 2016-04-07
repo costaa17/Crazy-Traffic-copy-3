@@ -240,8 +240,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 timeSinceLastUpdate = 1.0 / 60.0
                 self.lastUpdateTime = currentTime
             }
-            self.levelScreen.update(timeSinceLastUpdate)
-   
+            
+            levelScreen.update(timeSinceLastUpdate)
             
         }
     }
