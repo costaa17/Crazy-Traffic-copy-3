@@ -198,7 +198,9 @@ class Level: SKSpriteNode {
             //let car = Car(path: path)
             //car.addToLevel(self)
             
-            
+            for  i in 0 ..< self.paths.count {
+                startSpawningCars(i)
+            }
         }
     }
     
@@ -222,13 +224,22 @@ class Level: SKSpriteNode {
         return 2 * max(tileWidth, tileHeight) + 1
     }
     
+    func startSpawningCars(pathIndex: Int) {
+        let wait = SKAction.waitForDuration(10, withRange: 10)
+        let spawn = SKAction.runBlock {
+            let _ = Car(level: self, pathIndex: pathIndex)
+        }
+        let sequence = SKAction.sequence([wait, spawn])
+        self.runAction(SKAction.repeatActionForever(sequence))
+    }
+    
     func update(timeSinceLastUpdate: CFTimeInterval) {
         self.enumerateChildNodesWithName("car") {
             node, stop in
             let car = node as! Car
             car.update(timeSinceLastUpdate)
         }
-        for var i in 0 ..< self.paths.count {
+        for  i in 0 ..< self.paths.count {
             if self.paths[i].shouldRunCar() {
                 let _ = Car(level: self, pathIndex: i)
             }
