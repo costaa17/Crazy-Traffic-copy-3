@@ -23,7 +23,7 @@ class Car: SKSpriteNode {
     // is when we want to remove the car
     var edgeHitCount: Int = 0
     
-
+    
     let pathIndex: Int
     let pathLength: CGFloat
     let bezierPath: UIBezierPath
@@ -32,8 +32,6 @@ class Car: SKSpriteNode {
     weak var level: Level!
     
     let mySpeed: CGFloat
-    let myColor: UIColor
-    
     var currentSpeed: CGFloat = 0
     var pos: CGFloat = 0
     
@@ -51,36 +49,33 @@ class Car: SKSpriteNode {
         self.pathLength = self.bezierPath.length()
         
         
-        // Randomly assign a speed and corresponding color
-        switch Int(arc4random_uniform(UInt32(5)) + 1) /* 1-5 */ {
-        case 1:
-            self.mySpeed = CAR_1_SPEED
-            self.myColor = CAR_1_COLOR
-        case 2:
-            self.mySpeed = CAR_2_SPEED
-            self.myColor = CAR_2_COLOR
-        case 3:
-            self.mySpeed = CAR_3_SPEED
-            self.myColor = CAR_3_COLOR
-        case 4:
-            self.mySpeed = CAR_4_SPEED
-            self.myColor = CAR_4_COLOR
-        case 5:
-            self.mySpeed = CAR_5_SPEED
-            self.myColor = CAR_5_COLOR
-        default:
-            self.mySpeed = 50
-            self.myColor = UIColor.whiteColor()
+        if VARIABLE_CAR_SPEED {
+            switch Useful.random(min: 1, max: 5) {
+            case 1:
+                self.mySpeed = CAR_1_SPEED
+            case 2:
+                self.mySpeed = CAR_2_SPEED
+            case 3:
+                self.mySpeed = CAR_3_SPEED
+            case 4:
+                self.mySpeed = CAR_4_SPEED
+            case 5:
+                self.mySpeed = CAR_5_SPEED
+            default:
+                self.mySpeed = CAR_SPEED
+            }
+        } else {
+            self.mySpeed = CAR_SPEED
         }
-        self.currentSpeed = self.mySpeed
+        self.currentSpeed = CAR_SPEED
         
-        let carImage = ImageManager.imageForCar(self.myColor, id: self.id)
+        let carImage = ImageManager.imageForCar()
         let texture = SKTexture(image: carImage)
         super.init(texture: texture, color: UIColor.blackColor(), size: carImage.size)
         
         self.name = "car"
         self.zPosition = 21
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: 44.0, height: 44.0))
+        self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
         self.physicsBody?.categoryBitMask = CollisionTypes.Car.rawValue
         self.physicsBody?.collisionBitMask = CollisionTypes.None.rawValue
         self.physicsBody?.contactTestBitMask = CollisionTypes.LevelBorder.rawValue | CollisionTypes.Car.rawValue
@@ -107,7 +102,7 @@ class Car: SKSpriteNode {
             if car.pathIndex == self.pathIndex {
                 if car.id < self.id {
                     // car is in front of me
-                    if abs(car.pos - self.pos) < 60 {
+                    if abs(car.pos - self.pos) < (max(self.size.width, self.size.height) + 10) {
                         // Check if car in front is stopped
                         if car.currentSpeed == 0 {
                             // It's stopped, so we should stop for a while
@@ -155,20 +150,8 @@ class Car: SKSpriteNode {
         let wait = SKAction.waitForDuration(delay)
         let normalSpeed = SKAction.runBlock({
             self.currentSpeed = self.mySpeed
-            self.resetMyColor()
         })
         let sequence = SKAction.sequence([wait, normalSpeed])
         self.runAction(sequence)
     }
-    
-    func highlight() {
-        let carImage = ImageManager.imageForCar(HIGHLIGHT_COLOR, id: self.id)
-        self.texture = SKTexture(image: carImage)
-    }
-    
-    private func resetMyColor() {
-        let carImage = ImageManager.imageForCar(self.myColor, id: self.id)
-        self.texture = SKTexture(image: carImage)
-    }
-    
 }
