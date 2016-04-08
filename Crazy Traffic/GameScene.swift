@@ -116,7 +116,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.touchedNode = nil
             if let initialTouchLocation = touches.first?.locationInNode(self) {
                 self.touchedNode = self.nodeAtPoint(initialTouchLocation)
-               
+                
             }
         } else if self.currentScreen == .GameOver {
             // Go back to the level select screen
@@ -146,8 +146,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             break
         case .Ended:
             if let car = self.touchedNode as? Car {
-                car.highlight()
-                
                 let spriteAngle = self.getSpriteAngle(car)
                 let panAngle = self.getPanAngle(gesture)
                 if self.isAngleWithinRangeOfAngle(panAngle, spriteAngle: spriteAngle, delta: 30.0) {

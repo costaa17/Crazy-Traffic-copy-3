@@ -17,12 +17,10 @@ class Path {
     
     var type: PathType
     var segments: [PathSegment]
-    var interval: Int // remaining units of _ for car to run in this path
     
     init(type: PathType, segments: [PathSegment]) {
         self.type = type
         self.segments = segments
-        self.interval = Useful.random(min: 100,max: 450)
     }
     
     func CGPath(level: Level) -> CGPathRef {

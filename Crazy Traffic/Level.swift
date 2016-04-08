@@ -194,12 +194,24 @@ class Level: SKSpriteNode {
         if let scene = self.parent as? GameScene {
             scene.currentScreen = Screen.LevelPlay
             
-            //let path = self.paths[0].CGPath(self)
-            //let car = Car(path: path)
-            //car.addToLevel(self)
-            
-            for  i in 0 ..< self.paths.count {
-                startSpawningCars(i)
+            if DEBUG_MODE {
+                // Test car collisions
+                let pathIndex = 0
+                let wait = SKAction.waitForDuration(2)
+                let spawn = SKAction.runBlock {
+                    let _ = Car(level: self, pathIndex: pathIndex)
+                }
+                let sequence = SKAction.sequence([wait, spawn])
+                self.runAction(SKAction.repeatActionForever(sequence))
+            } else {
+                for i in 0 ..< self.paths.count {
+                    let wait = SKAction.waitForDuration(10, withRange: 10)
+                    let spawn = SKAction.runBlock {
+                        let _ = Car(level: self, pathIndex: i)
+                    }
+                    let sequence = SKAction.sequence([wait, spawn])
+                    self.runAction(SKAction.repeatActionForever(sequence))
+                }
             }
         }
     }
@@ -224,21 +236,11 @@ class Level: SKSpriteNode {
         return 2 * max(tileWidth, tileHeight) + 1
     }
     
-    func startSpawningCars(pathIndex: Int) {
-        let wait = SKAction.waitForDuration(10, withRange: 10)
-        let spawn = SKAction.runBlock {
-            let _ = Car(level: self, pathIndex: pathIndex)
-        }
-        let sequence = SKAction.sequence([wait, spawn])
-        self.runAction(SKAction.repeatActionForever(sequence))
-    }
-    
     func update(timeSinceLastUpdate: CFTimeInterval) {
         self.enumerateChildNodesWithName("car") {
             node, stop in
             let car = node as! Car
             car.update(timeSinceLastUpdate)
         }
-        
     }
 }

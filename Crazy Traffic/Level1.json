@@ -5,7 +5,7 @@
     "tutorialText": "Touch cars to stop them. Slide cars forward to make them go faster.",
     "rows": 10,
     "cols": 20,
-    "backgroundColor": "#00a077",
+    "backgroundColor": "#000",
     "paths": [{
               "type": "Road",
               "segments": [

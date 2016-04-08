@@ -58,49 +58,69 @@ class ImageManager {
         return tiledBackground
     }
     
-    class func imageForCar(color: UIColor, id: Int) -> UIImage {
-        let size:CGSize = CGSize(width: 45, height: 66);
+    class func imageForCar() -> UIImage {
+        let size: CGSize = CGSize(width: 45, height: 66);
+        
         UIGraphicsBeginImageContext(size)
+        
         //// Color Declarations
-        let carColor = UIColor(red: 0.050, green: 0.050, blue: 0.050, alpha: 1.000)
-        let carTopColor = UIColor(red: 0.998, green: 0.998, blue: 0.998, alpha: 1.000)
+        var carColor: UIColor!
+        var carTopColor: UIColor!
+        var carWindowColor: UIColor!
+        var carWheelColor: UIColor!
+        var carStrokeColor: UIColor!
+        if Useful.randomBool {
+            // Black car
+            carColor    = CAR_1_COLOR_BODY
+            carTopColor = CAR_1_COLOR_TOP
+            carWindowColor = CAR_1_COLOR_WINDOW
+            carWheelColor = CAR_1_COLOR_WHEEL
+            carStrokeColor = CAR_1_COLOR_STROKE
+        } else {
+            // White car
+            carColor    = CAR_2_COLOR_BODY
+            carTopColor = CAR_2_COLOR_TOP
+            carWindowColor = CAR_2_COLOR_WINDOW
+            carWheelColor = CAR_2_COLOR_WHEEL
+            carStrokeColor = CAR_2_COLOR_STROKE
+        }
         
         //// Car body Drawing
         let carBodyPath = UIBezierPath(roundedRect: CGRectMake(6, 4, 34, 60), cornerRadius: 12)
         carColor.setFill()
         carBodyPath.fill()
-        UIColor.blackColor().setStroke()
+        carStrokeColor.setStroke()
         carBodyPath.lineWidth = 2.5
         carBodyPath.stroke()
         
         
         //// wheel1 Drawing
         let wheel1Path = UIBezierPath(roundedRect: CGRectMake(3, 12, 6, 9), cornerRadius: 3)
-        UIColor.blackColor().setFill()
+        carWheelColor.setFill()
         wheel1Path.fill()
         
         
         //// wheel2 Drawing
         let wheel2Path = UIBezierPath(roundedRect: CGRectMake(3, 45, 6, 9), cornerRadius: 3)
-        UIColor.blackColor().setFill()
+        carWheelColor.setFill()
         wheel2Path.fill()
         
         
         //// wheel3 Drawing
         let wheel3Path = UIBezierPath(roundedRect: CGRectMake(37, 12, 6, 9), cornerRadius: 3)
-        UIColor.blackColor().setFill()
+        carWheelColor.setFill()
         wheel3Path.fill()
         
         
         //// wheel4 Drawing
         let wheel4Path = UIBezierPath(roundedRect: CGRectMake(37, 45, 6, 9), cornerRadius: 3)
-        UIColor.blackColor().setFill()
+        carWheelColor.setFill()
         wheel4Path.fill()
         
         
         //// Car window Drawing
         let carWindowPath = UIBezierPath(ovalInRect: CGRectMake(12, 26, 22, 15))
-        UIColor.lightGrayColor().setFill()
+        carWindowColor.setFill()
         carWindowPath.fill()
         
         
@@ -108,8 +128,7 @@ class ImageManager {
         let carTopPath = UIBezierPath(roundedRect: CGRectMake(12, 32, 22, 22), cornerRadius: 7)
         carTopColor.setFill()
         carTopPath.fill()
-
-
+        
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
