@@ -9,7 +9,7 @@
 import SpriteKit
 
 
-class Level: SKSpriteNode {
+class LevelNode: SKSpriteNode {
     let rows: Int
     let cols: Int
     let levelNum: Int

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0519ED431CAA002B008CAB28 /* UIBezierPath+Length.m in Sources */ = {isa = PBXBuildFile; fileRef = 0519ED421CAA002B008CAB28 /* UIBezierPath+Length.m */; };
-		0519ED481CAC72C8008CAB28 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0519ED471CAC72C8008CAB28 /* GameOver.swift */; };
+		0519ED481CAC72C8008CAB28 /* GameOverNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0519ED471CAC72C8008CAB28 /* GameOverNode.swift */; };
 		0540FC021C99EAE200FB6927 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540FC011C99EAE200FB6927 /* Path.swift */; };
 		0540FC051C99EAF500FB6927 /* PathSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540FC041C99EAF500FB6927 /* PathSegment.swift */; };
 		0540FC071C99EB0900FB6927 /* PathVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540FC061C99EB0900FB6927 /* PathVertex.swift */; };
@@ -20,12 +20,10 @@
 		0567EDE31C890C6A00729F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0567EDE21C890C6A00729F98 /* Assets.xcassets */; };
 		0567EDE61C890C6A00729F98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0567EDE41C890C6A00729F98 /* LaunchScreen.storyboard */; };
 		0567EDEE1C89189100729F98 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567EDED1C89189100729F98 /* ImageManager.swift */; };
-		0567EDF01C89326300729F98 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567EDEF1C89326300729F98 /* Colours.swift */; };
-		0567EDF21C89419400729F98 /* UIImage+TintPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567EDF11C89419400729F98 /* UIImage+TintPhoto.swift */; };
 		0567EDF71C895E5100729F98 /* Level1.json in Resources */ = {isa = PBXBuildFile; fileRef = 0567EDF61C895E5100729F98 /* Level1.json */; };
 		0567EDF91C8A7ECA00729F98 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567EDF81C8A7ECA00729F98 /* LevelManager.swift */; };
 		057779A91CAEE2A20060BFE9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057779A81CAEE2A20060BFE9 /* Constants.swift */; };
-		05C7357C1CA1CC0A00B242F2 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C7357B1CA1CC0A00B242F2 /* Level.swift */; };
+		05C7357C1CA1CC0A00B242F2 /* LevelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C7357B1CA1CC0A00B242F2 /* LevelNode.swift */; };
 		05C7357E1CA3706400B242F2 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C7357D1CA3706400B242F2 /* Car.swift */; };
 		24E968581CB70F510042FB79 /* Useful.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E968571CB70F510042FB79 /* Useful.swift */; };
 /* End PBXBuildFile section */
@@ -34,7 +32,7 @@
 		0519ED401CAA002A008CAB28 /* Crazy Traffic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crazy Traffic-Bridging-Header.h"; sourceTree = "<group>"; };
 		0519ED411CAA002B008CAB28 /* UIBezierPath+Length.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+Length.h"; sourceTree = "<group>"; };
 		0519ED421CAA002B008CAB28 /* UIBezierPath+Length.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+Length.m"; sourceTree = "<group>"; };
-		0519ED471CAC72C8008CAB28 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
+		0519ED471CAC72C8008CAB28 /* GameOverNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverNode.swift; sourceTree = "<group>"; };
 		0540FC011C99EAE200FB6927 /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		0540FC041C99EAF500FB6927 /* PathSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathSegment.swift; sourceTree = "<group>"; };
 		0540FC061C99EB0900FB6927 /* PathVertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathVertex.swift; sourceTree = "<group>"; };
@@ -48,12 +46,10 @@
 		0567EDE51C890C6A00729F98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0567EDE71C890C6A00729F98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0567EDED1C89189100729F98 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
-		0567EDEF1C89326300729F98 /* Colours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
-		0567EDF11C89419400729F98 /* UIImage+TintPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+TintPhoto.swift"; sourceTree = "<group>"; };
 		0567EDF61C895E5100729F98 /* Level1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level1.json; sourceTree = "<group>"; };
 		0567EDF81C8A7ECA00729F98 /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		057779A81CAEE2A20060BFE9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		05C7357B1CA1CC0A00B242F2 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		05C7357B1CA1CC0A00B242F2 /* LevelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelNode.swift; sourceTree = "<group>"; };
 		05C7357D1CA3706400B242F2 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		24E968571CB70F510042FB79 /* Useful.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Useful.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,14 +104,12 @@
 				0567EDDB1C890C6A00729F98 /* GameScene.swift */,
 				0567EDF81C8A7ECA00729F98 /* LevelManager.swift */,
 				0567EDED1C89189100729F98 /* ImageManager.swift */,
-				05C7357B1CA1CC0A00B242F2 /* Level.swift */,
-				0519ED471CAC72C8008CAB28 /* GameOver.swift */,
+				05C7357B1CA1CC0A00B242F2 /* LevelNode.swift */,
+				0519ED471CAC72C8008CAB28 /* GameOverNode.swift */,
 				05C7357D1CA3706400B242F2 /* Car.swift */,
 				24E968571CB70F510042FB79 /* Useful.swift */,
 				0540FC031C99EAE800FB6927 /* Paths */,
 				0567EDF51C895E4400729F98 /* Levels */,
-				0567EDF11C89419400729F98 /* UIImage+TintPhoto.swift */,
-				0567EDEF1C89326300729F98 /* Colours.swift */,
 				0567EDDF1C890C6A00729F98 /* Main.storyboard */,
 				0567EDE21C890C6A00729F98 /* Assets.xcassets */,
 				0567EDE41C890C6A00729F98 /* LaunchScreen.storyboard */,
@@ -206,16 +200,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0540FC071C99EB0900FB6927 /* PathVertex.swift in Sources */,
-				05C7357C1CA1CC0A00B242F2 /* Level.swift in Sources */,
+				05C7357C1CA1CC0A00B242F2 /* LevelNode.swift in Sources */,
 				05C7357E1CA3706400B242F2 /* Car.swift in Sources */,
 				0567EDDC1C890C6A00729F98 /* GameScene.swift in Sources */,
-				0567EDF01C89326300729F98 /* Colours.swift in Sources */,
 				057779A91CAEE2A20060BFE9 /* Constants.swift in Sources */,
 				0540FC021C99EAE200FB6927 /* Path.swift in Sources */,
 				0519ED431CAA002B008CAB28 /* UIBezierPath+Length.m in Sources */,
 				0567EDDE1C890C6A00729F98 /* GameViewController.swift in Sources */,
-				0567EDF21C89419400729F98 /* UIImage+TintPhoto.swift in Sources */,
-				0519ED481CAC72C8008CAB28 /* GameOver.swift in Sources */,
+				0519ED481CAC72C8008CAB28 /* GameOverNode.swift in Sources */,
 				24E968581CB70F510042FB79 /* Useful.swift in Sources */,
 				0567EDF91C8A7ECA00729F98 /* LevelManager.swift in Sources */,
 				0567EDD81C890C6A00729F98 /* AppDelegate.swift in Sources */,

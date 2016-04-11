@@ -16,7 +16,7 @@ class PathSegment {
         self.vertices = vertices
     }
     
-    func addToPath(path: CGMutablePathRef, index: Int, level: Level) {
+    func addToPath(path: CGMutablePathRef, index: Int, level: LevelNode) {
         let p0 = level.pointForVertex(self.vertices[0])
         if index == 0 {
             CGPathMoveToPoint(path, nil, p0.x, p0.y)
@@ -43,7 +43,7 @@ class PathSegment {
     
     // Builds a path from the vertices based on the properties of the
     // passed game level
-    func CGPath(level: Level) -> CGPathRef {
+    func CGPath(level: LevelNode) -> CGPathRef {
         
         // A segment is either 2, 3, or 4 vertices
         let cgPath = CGPathCreateMutable()

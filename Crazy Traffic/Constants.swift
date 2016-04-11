@@ -31,14 +31,14 @@ let CAR_5_SPEED: CGFloat =   110.0
 // Black Car
 let CAR_1_COLOR_BODY   = UIColor.blackColor()
 let CAR_1_COLOR_TOP    = UIColor.whiteColor()
-let CAR_1_COLOR_WINDOW = UIColor.grayColor()
+let CAR_1_COLOR_WINDOW = UIColor.lightGrayColor()
 let CAR_1_COLOR_WHEEL  = UIColor.blackColor()
 let CAR_1_COLOR_STROKE = UIColor.blackColor()
 
 // White Car
 let CAR_2_COLOR_BODY   = UIColor.whiteColor()
 let CAR_2_COLOR_TOP    = UIColor.blackColor()
-let CAR_2_COLOR_WINDOW = UIColor.grayColor()
+let CAR_2_COLOR_WINDOW = UIColor.lightGrayColor()
 let CAR_2_COLOR_WHEEL  = UIColor.blackColor()
 let CAR_2_COLOR_STROKE = UIColor.blackColor()
 
