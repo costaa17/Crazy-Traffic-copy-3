@@ -43,10 +43,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(self.gameOverScreen)
         
         // Generate images for level selection
-        let levelColors = [UIColor.salmonColor(), UIColor.pastelBlueColor(), UIColor.tomatoColor(), UIColor.skyBlueColor()]
-        for i in 0 ..< levelColors.count {
+        let numberOfLevels = 4
+        for i in 0 ..< numberOfLevels{
             if let levelNode = self.childNodeWithName("level-\(i+1)") as? SKSpriteNode {
-                levelNode.texture = SKTexture(image: ImageManager.imageForLevel(i+1, fillColor: levelColors[i], strokeColor: UIColor.ivoryColor()));
+                if i % 2 == 0{
+                    levelNode.texture = SKTexture(image: ImageManager.imageForLevel(i+1, fillColor: UIColor.whiteColor(), strokeColor: UIColor.blackColor()));
+                }else{
+                    levelNode.texture = SKTexture(image: ImageManager.imageForLevel(i+1, fillColor: UIColor.blackColor(), strokeColor: UIColor.whiteColor()));
+
+                }
             }
         }
     }
@@ -63,16 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
         
-        if firstBody.categoryBitMask == CollisionTypes.LevelBorder.rawValue && secondBody.categoryBitMask == CollisionTypes.Car.rawValue {
-            // Car hit the edge of the level
-            let car = secondBody.node as! Car
-            car.edgeHitCount += 1
-            if car.edgeHitCount > 1 {
-                self.levelScreen.score += 1
-                self.levelScreen.updateScore()
-                car.removeFromParent()
-            }
-        } else if firstBody.categoryBitMask == CollisionTypes.Car.rawValue && secondBody.categoryBitMask == CollisionTypes.Car.rawValue {
+        if firstBody.categoryBitMask == CollisionTypes.Car.rawValue && secondBody.categoryBitMask == CollisionTypes.Car.rawValue {
             // Car hit a car
             let car1 = firstBody.node as! Car
             let car2 = secondBody.node as! Car
@@ -82,6 +78,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.gameOverScreen.show(car1.id, id2: car2.id)
             }
         }
+    }
+    
+    func didEndContact(contact: SKPhysicsContact) {
+        var firstBody: SKPhysicsBody!
+        var secondBody: SKPhysicsBody!
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        if firstBody.categoryBitMask == CollisionTypes.LevelBorder.rawValue && secondBody.categoryBitMask == CollisionTypes.Car.rawValue {
+            // Car hit the edge of the level
+            let car = secondBody.node as! Car
+            car.edgeHitCount += 1
+            if car.edgeHitCount > 1 {
+                self.levelScreen.score += 1
+                self.levelScreen.updateScore()
+                car.removeFromParent()
+            }
+        }
+
     }
     
     func setBackgroundImage() {

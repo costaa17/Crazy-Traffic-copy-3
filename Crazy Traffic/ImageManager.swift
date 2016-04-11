@@ -86,46 +86,46 @@ class ImageManager {
         }
         
         //// Car body Drawing
-        let carBodyPath = UIBezierPath(roundedRect: CGRectMake(6, 4, 34, 60), cornerRadius: 12)
+        let carBodyPath = UIBezierPath(roundedRect: CGRectMake(3, 1, 34, 60), cornerRadius: 12)
         carColor.setFill()
         carBodyPath.fill()
-        carStrokeColor.setStroke()
+        UIColor.blackColor().setStroke()
         carBodyPath.lineWidth = 2.5
         carBodyPath.stroke()
         
         
         //// wheel1 Drawing
-        let wheel1Path = UIBezierPath(roundedRect: CGRectMake(3, 12, 6, 9), cornerRadius: 3)
-        carWheelColor.setFill()
+        let wheel1Path = UIBezierPath(roundedRect: CGRectMake(0, 12, 6, 9), cornerRadius: 3)
+        UIColor.blackColor().setFill()
         wheel1Path.fill()
         
         
         //// wheel2 Drawing
-        let wheel2Path = UIBezierPath(roundedRect: CGRectMake(3, 45, 6, 9), cornerRadius: 3)
-        carWheelColor.setFill()
+        let wheel2Path = UIBezierPath(roundedRect: CGRectMake(0, 40, 6, 9), cornerRadius: 3)
+        UIColor.blackColor().setFill()
         wheel2Path.fill()
         
         
         //// wheel3 Drawing
-        let wheel3Path = UIBezierPath(roundedRect: CGRectMake(37, 12, 6, 9), cornerRadius: 3)
-        carWheelColor.setFill()
+        let wheel3Path = UIBezierPath(roundedRect: CGRectMake(34, 12, 6, 9), cornerRadius: 3)
+        UIColor.blackColor().setFill()
         wheel3Path.fill()
         
         
         //// wheel4 Drawing
-        let wheel4Path = UIBezierPath(roundedRect: CGRectMake(37, 45, 6, 9), cornerRadius: 3)
-        carWheelColor.setFill()
+        let wheel4Path = UIBezierPath(roundedRect: CGRectMake(34, 40, 6, 9), cornerRadius: 3)
+        UIColor.blackColor().setFill()
         wheel4Path.fill()
         
         
         //// Car window Drawing
-        let carWindowPath = UIBezierPath(ovalInRect: CGRectMake(12, 26, 22, 15))
-        carWindowColor.setFill()
+        let carWindowPath = UIBezierPath(ovalInRect: CGRectMake(9, 25, 22, 15))
+        UIColor.lightGrayColor().setFill()
         carWindowPath.fill()
         
         
         //// Car top Drawing
-        let carTopPath = UIBezierPath(roundedRect: CGRectMake(12, 32, 22, 22), cornerRadius: 7)
+        let carTopPath = UIBezierPath(roundedRect: CGRectMake(9, 32, 22, 22), cornerRadius: 7)
         carTopColor.setFill()
         carTopPath.fill()
         
