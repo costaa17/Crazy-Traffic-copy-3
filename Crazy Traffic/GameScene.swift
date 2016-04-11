@@ -25,12 +25,14 @@ enum CollisionTypes: UInt32 {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var currentScreen: Screen = .LevelSelect
-    var levelScreen: Level!
-    var gameOverScreen: GameOver!
+    var levelNode: LevelNode!
+    var gameOverNode: GameOverNode!
     
     var touchedNode: SKNode!
     
     var lastUpdateTime: CFTimeInterval = 0.0
+    
+    // MARK: - Move to view
     
     override func didMoveToView(view: SKView) {
         self.physicsWorld.contactDelegate = self
@@ -39,24 +41,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.backgroundColor = LEVEL_SELECT_COLOR
         
-        self.gameOverScreen = GameOver()
-        self.addChild(self.gameOverScreen)
+        self.gameOverNode = GameOverNode()
+        self.addChild(self.gameOverNode)
         
         // Generate images for level selection
         let numberOfLevels = 4
-        for i in 0 ..< numberOfLevels{
+        for i in 0 ..< numberOfLevels {
             if let levelNode = self.childNodeWithName("level-\(i+1)") as? SKSpriteNode {
-                if i % 2 == 0{
-                    levelNode.texture = SKTexture(image: ImageManager.imageForLevel(i+1, fillColor: UIColor.whiteColor(), strokeColor: UIColor.blackColor()));
-                }else{
-                    levelNode.texture = SKTexture(image: ImageManager.imageForLevel(i+1, fillColor: UIColor.blackColor(), strokeColor: UIColor.whiteColor()));
-
+                if i % 2 == 0 {
+                    levelNode.texture = SKTexture(image: ImageManager.imageForLevel(i+1, fillColor: UIColor.whiteColor(), strokeColor: UIColor.blackColor()))
+                } else {
+                    levelNode.texture = SKTexture(image: ImageManager.imageForLevel(i+1, fillColor: UIColor.blackColor(), strokeColor: UIColor.whiteColor()))
                 }
             }
         }
     }
     
-    func didBeginContact(contact: SKPhysicsContact) {
+    // MARK: - Contact
+    
+    private func getOrderedBodies(contact: SKPhysicsContact) -> (firstBody: SKPhysicsBody, secondBody: SKPhysicsBody) {
         var firstBody: SKPhysicsBody!
         var secondBody: SKPhysicsBody!
         
@@ -68,51 +71,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
         
-        if firstBody.categoryBitMask == CollisionTypes.Car.rawValue && secondBody.categoryBitMask == CollisionTypes.Car.rawValue {
+        return (firstBody, secondBody)
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        let bodies = getOrderedBodies(contact)
+        
+        if bodies.firstBody.categoryBitMask == CollisionTypes.Car.rawValue && bodies.secondBody.categoryBitMask == CollisionTypes.Car.rawValue {
             // Car hit a car
-            let car1 = firstBody.node as! Car
-            let car2 = secondBody.node as! Car
+            let car1 = bodies.firstBody.node as! Car
+            let car2 = bodies.secondBody.node as! Car
             
             if car1.pathIndex != car2.pathIndex {
                 print("first: \(car1.id), second: \(car2.id)")
-                self.gameOverScreen.show(car1.id, id2: car2.id)
+                self.gameOverNode.show(car1.id, id2: car2.id)
             }
         }
     }
     
     func didEndContact(contact: SKPhysicsContact) {
-        var firstBody: SKPhysicsBody!
-        var secondBody: SKPhysicsBody!
+        let bodies = getOrderedBodies(contact)
         
-        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
-            firstBody = contact.bodyA
-            secondBody = contact.bodyB
-        } else {
-            firstBody = contact.bodyB
-            secondBody = contact.bodyA
-        }
-        if firstBody.categoryBitMask == CollisionTypes.LevelBorder.rawValue && secondBody.categoryBitMask == CollisionTypes.Car.rawValue {
+        if bodies.firstBody.categoryBitMask == CollisionTypes.LevelBorder.rawValue && bodies.secondBody.categoryBitMask == CollisionTypes.Car.rawValue {
             // Car hit the edge of the level
-            let car = secondBody.node as! Car
+            let car = bodies.secondBody.node as! Car
             car.edgeHitCount += 1
             if car.edgeHitCount > 1 {
-                self.levelScreen.score += 1
-                self.levelScreen.updateScore()
+                self.levelNode.score += 1
+                self.levelNode.updateScore()
                 car.removeFromParent()
             }
         }
-
     }
     
-    func setBackgroundImage() {
-        let backgroundImage = ImageManager.backgroundImageForSize(self.size)
-        let backgroundTexture = SKTexture(image: backgroundImage)
-        let backgroundTiles = SKSpriteNode(texture: backgroundTexture)
-        backgroundTiles.yScale = -1 //upon closer inspection, I noticed my source tile was flipped vertically, so this just flipped it back.
-        backgroundTiles.position = CGPointMake(self.size.width/2, self.size.height/2)
-        backgroundTiles.zPosition = -1
-        self.addChild(backgroundTiles)
-    }
+    // MARK: - Touches
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if self.currentScreen == .LevelSelect {
@@ -122,7 +114,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if let nodeName = self.nodeAtPoint(location).name {
                     let levelNum: Int = Int(nodeName.componentsSeparatedByString("-")[1])!
                     if let level = LevelManager.loadLevel(levelNum) {
-                        self.levelScreen = level
+                        self.levelNode = level
                         self.addChild(level)
                         level.setup()
                     }
@@ -130,8 +122,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         } else if self.currentScreen == .LevelIntro {
             // Tap on the intro screen immediately goes to play screen
-            self.levelScreen.removeActionForKey("intro_transition")
-            self.levelScreen.transitionToPlay()
+            self.levelNode.removeActionForKey("intro_transition")
+            self.levelNode.transitionToPlay()
         } else if self.currentScreen == .LevelPlay {
             self.touchedNode = nil
             if let initialTouchLocation = touches.first?.locationInNode(self) {
@@ -140,12 +132,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         } else if self.currentScreen == .GameOver {
             // Go back to the level select screen
-            self.levelScreen.removeFromParent()
-            self.levelScreen = nil
+            self.levelNode.removeFromParent()
+            self.levelNode = nil
             
-            self.gameOverScreen.hide()
+            self.gameOverNode.hide()
         }
     }
+    
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if self.currentScreen == .LevelPlay {
             
@@ -259,7 +252,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.lastUpdateTime = currentTime
             }
             
-            levelScreen.update(timeSinceLastUpdate)
+            levelNode.update(timeSinceLastUpdate)
             
         }
     }

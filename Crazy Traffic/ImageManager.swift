@@ -89,38 +89,38 @@ class ImageManager {
         let carBodyPath = UIBezierPath(roundedRect: CGRectMake(3, 1, 34, 60), cornerRadius: 12)
         carColor.setFill()
         carBodyPath.fill()
-        UIColor.blackColor().setStroke()
+        carStrokeColor.setStroke()
         carBodyPath.lineWidth = 2.5
         carBodyPath.stroke()
         
         
         //// wheel1 Drawing
         let wheel1Path = UIBezierPath(roundedRect: CGRectMake(0, 12, 6, 9), cornerRadius: 3)
-        UIColor.blackColor().setFill()
+        carWheelColor.setFill()
         wheel1Path.fill()
         
         
         //// wheel2 Drawing
         let wheel2Path = UIBezierPath(roundedRect: CGRectMake(0, 40, 6, 9), cornerRadius: 3)
-        UIColor.blackColor().setFill()
+        carWheelColor.setFill()
         wheel2Path.fill()
         
         
         //// wheel3 Drawing
         let wheel3Path = UIBezierPath(roundedRect: CGRectMake(34, 12, 6, 9), cornerRadius: 3)
-        UIColor.blackColor().setFill()
+        carWheelColor.setFill()
         wheel3Path.fill()
         
         
         //// wheel4 Drawing
         let wheel4Path = UIBezierPath(roundedRect: CGRectMake(34, 40, 6, 9), cornerRadius: 3)
-        UIColor.blackColor().setFill()
+        carWheelColor.setFill()
         wheel4Path.fill()
         
         
         //// Car window Drawing
         let carWindowPath = UIBezierPath(ovalInRect: CGRectMake(9, 25, 22, 15))
-        UIColor.lightGrayColor().setFill()
+        carWindowColor.setFill()
         carWindowPath.fill()
         
         

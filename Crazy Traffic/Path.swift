@@ -23,7 +23,7 @@ class Path {
         self.segments = segments
     }
     
-    func CGPath(level: Level) -> CGPathRef {
+    func CGPath(level: LevelNode) -> CGPathRef {
         let path = CGPathCreateMutable()
         for i in 0 ..< self.segments.count {
             // index is used to either move to point (beginning of path) or
