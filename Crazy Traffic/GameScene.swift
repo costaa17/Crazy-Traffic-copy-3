@@ -13,6 +13,7 @@ enum Screen {
     case LevelIntro
     case LevelPlay
     case GameOver
+    case Help
 }
 
 enum CollisionTypes: UInt32 {
@@ -128,15 +129,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     }
                 }
             }
-        } else if self.currentScreen == .LevelIntro {
+        } else if self.currentScreen == .LevelIntro ||  self.currentScreen == .Help{
             // Tap on the intro screen immediately goes to play screen
+            self.paused = false
             self.levelScreen.removeActionForKey("intro_transition")
             self.levelScreen.transitionToPlay()
+            
         } else if self.currentScreen == .LevelPlay {
             self.touchedNode = nil
             if let initialTouchLocation = touches.first?.locationInNode(self) {
-                self.touchedNode = self.nodeAtPoint(initialTouchLocation)
-                
+                let node = self.nodeAtPoint(initialTouchLocation)
+                if node.name == "car" {
+                    self.touchedNode = node
+                    
+                } else if node.name == "help" {
+                    self.levelScreen.showHelp(self)
+                    self.currentScreen = .Help
+                }
             }
         } else if self.currentScreen == .GameOver {
             // Go back to the level select screen
@@ -146,6 +155,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.gameOverScreen.hide()
         }
     }
+        
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if self.currentScreen == .LevelPlay {
             
