@@ -55,6 +55,7 @@ class LevelNode: SKSpriteNode {
             self.setupGroundNode()
             self.setupBackgroundNode()
             self.setupScoreNode()
+            self.setUpHelpNode()
             self.activatePhysics()
             self.transitionToPlayWithDelay(4.0)
         }
@@ -124,6 +125,16 @@ class LevelNode: SKSpriteNode {
         }
     }
     
+    private func setUpHelpNode(){
+        let texture = SKTexture(image: ImageManager.imageForHelpSymbol())
+        let helpNode = SKSpriteNode(texture: texture)
+        helpNode.position = CGPointMake(25, 25)
+        helpNode.zPosition = 20
+        helpNode.alpha = 0.0
+        helpNode.name = "help"
+        self.addChild(helpNode)
+    }
+    
     func activatePhysics() {
         // Borders
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
@@ -176,7 +187,20 @@ class LevelNode: SKSpriteNode {
                 self.backgroundNode.enumerateChildNodesWithName("path", usingBlock: {
                     node, stop in
                     node.runAction(SKAction.fadeInWithDuration(duration))
-                })},
+                })
+                self.enumerateChildNodesWithName("help", usingBlock: {
+                    node, stop in
+                    if self.hasTutorial{
+                        node.runAction(SKAction.fadeInWithDuration(duration))
+                    }
+                })
+                
+                self.enumerateChildNodesWithName("car") {
+                    node, stop in
+                    node.runAction(SKAction.fadeInWithDuration(0))
+                }
+            
+            },
             SKAction.runBlock { () -> Void in
                 self.backgroundNode.childNodeWithName("levelNum")?.runAction(SKAction.fadeOutWithDuration(duration))
                 self.backgroundNode.childNodeWithName("levelGoal")?.runAction(SKAction.fadeOutWithDuration(duration))
@@ -192,25 +216,28 @@ class LevelNode: SKSpriteNode {
         self.backgroundNode.position = CGPointZero
         
         if let scene = self.parent as? GameScene {
+            let currentScreen = scene.currentScreen
             scene.currentScreen = Screen.LevelPlay
             
-            if DEBUG_MODE {
-                // Test car collisions
-                let pathIndex = 0
-                let wait = SKAction.waitForDuration(2)
-                let spawn = SKAction.runBlock {
-                    let _ = Car(level: self, pathIndex: pathIndex)
-                }
-                let sequence = SKAction.sequence([wait, spawn])
-                self.runAction(SKAction.repeatActionForever(sequence))
-            } else {
-                for i in 0 ..< self.paths.count {
-                    let wait = SKAction.waitForDuration(10, withRange: 10)
+            if currentScreen == .LevelIntro{
+                if DEBUG_MODE {
+                    // Test car collisions
+                    let pathIndex = 0
+                    let wait = SKAction.waitForDuration(2)
                     let spawn = SKAction.runBlock {
-                        let _ = Car(level: self, pathIndex: i)
+                        let _ = Car(level: self, pathIndex: pathIndex)
                     }
                     let sequence = SKAction.sequence([wait, spawn])
                     self.runAction(SKAction.repeatActionForever(sequence))
+                } else {
+                    for i in 0 ..< self.paths.count {
+                        let wait = SKAction.waitForDuration(10, withRange: 10)
+                        let spawn = SKAction.runBlock {
+                            let _ = Car(level: self, pathIndex: i)
+                        }
+                        let sequence = SKAction.sequence([wait, spawn])
+                        self.runAction(SKAction.repeatActionForever(sequence))
+                    }
                 }
             }
         }
@@ -242,5 +269,38 @@ class LevelNode: SKSpriteNode {
             let car = node as! Car
             car.update(timeSinceLastUpdate)
         }
+    }
+    
+    func showHelp(scene: SKScene){
+        let showHelp = SKAction.runBlock { () -> Void in
+            self.backgroundNode.childNodeWithName("levelNum")?.runAction(SKAction.fadeInWithDuration(0))
+            self.backgroundNode.childNodeWithName("levelGoal")?.runAction(SKAction.fadeInWithDuration(0))
+            self.backgroundNode.childNodeWithName("tutorial")?.runAction(SKAction.fadeInWithDuration(0))
+            
+            self.backgroundNode.enumerateChildNodesWithName("path", usingBlock: {
+                node, stop in
+                node.runAction(SKAction.fadeOutWithDuration(0))
+            })
+            
+            self.enumerateChildNodesWithName("help", usingBlock: {
+                node, stop in
+                if self.hasTutorial{
+                    node.runAction(SKAction.fadeOutWithDuration(0))
+                }
+            })
+            
+            self.enumerateChildNodesWithName("car") {
+                node, stop in
+                node.runAction(SKAction.fadeOutWithDuration(0))
+            }
+
+        }
+        
+        let pause = SKAction.runBlock { () -> Void in
+            scene.paused = true
+        }
+        
+        let sequence = SKAction.sequence([showHelp, pause])
+        self.runAction(sequence)
     }
 }
