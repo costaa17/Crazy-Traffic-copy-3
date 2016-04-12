@@ -61,7 +61,7 @@ class ImageManager {
     class func imageForCar() -> UIImage {
         let size: CGSize = CGSize(width: 45, height: 66);
         
-        UIGraphicsBeginImageContext(size)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         
         //// Color Declarations
         var carColor: UIColor!
@@ -137,7 +137,7 @@ class ImageManager {
     class func imageForHelpSymbol() -> UIImage {
         let size: CGSize = CGSize(width: 38, height: 38);
         
-        UIGraphicsBeginImageContext(size)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         
         //// Color Declarations
         let helpSimbolColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.000)

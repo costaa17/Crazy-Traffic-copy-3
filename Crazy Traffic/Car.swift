@@ -9,12 +9,6 @@
 import SpriteKit
 
 
-enum CarStatus {
-    case Normal
-    case Speeding
-    case Stopped
-}
-
 class Car: SKSpriteNode {
     let id: Int
     
@@ -75,7 +69,8 @@ class Car: SKSpriteNode {
         
         self.name = "car"
         self.zPosition = 21
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.size.width - 13, self.size.height - 13))
+        let carBodyPath = UIBezierPath(roundedRect: CGRectMake(3-17, 1-30, 34, 60), cornerRadius: 12)
+        self.physicsBody = SKPhysicsBody(polygonFromPath: carBodyPath.CGPath)
         self.physicsBody?.categoryBitMask = CollisionTypes.Car.rawValue
         self.physicsBody?.collisionBitMask = CollisionTypes.None.rawValue
         self.physicsBody?.contactTestBitMask = CollisionTypes.LevelBorder.rawValue | CollisionTypes.Car.rawValue

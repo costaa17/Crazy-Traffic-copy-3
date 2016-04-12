@@ -22,8 +22,13 @@ class LevelNode: SKSpriteNode {
     var backgroundNode: SKSpriteNode! = nil
     var groundNode: SKSpriteNode! = nil
     var scoreNode: SKLabelNode! = nil
+    var helpNode: SKSpriteNode! = nil
     
-    var score: Int = 0
+    var score: Int = 0 {
+        didSet {
+            self.scoreNode.text = "Score: \(score)"
+        }
+    }
     
     var nextCarID: Int = 1
     
@@ -49,13 +54,15 @@ class LevelNode: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Setup code
+    
     func setup() {
         if let scene = self.parent as? GameScene {
             scene.currentScreen = Screen.LevelIntro
             self.setupGroundNode()
             self.setupBackgroundNode()
             self.setupScoreNode()
-            self.setUpHelpNode()
+            self.setupHelpNode()
             self.activatePhysics()
             self.transitionToPlayWithDelay(4.0)
         }
@@ -67,7 +74,7 @@ class LevelNode: SKSpriteNode {
         self.scoreNode.fontName = FONT_NAME
         self.scoreNode.fontSize = FONT_SIZE_M
         self.scoreNode.horizontalAlignmentMode = .Right
-        self.updateScore()
+        self.score = 0
         self.scoreNode.position = CGPoint(x: CGRectGetMaxX(self.frame)-CGRectGetWidth(self.scoreNode.frame), y: CGRectGetMaxY(self.frame)-CGRectGetHeight(self.scoreNode.frame)-5)
         self.scoreNode.zPosition = 20
         self.addChild(self.scoreNode)
@@ -125,9 +132,9 @@ class LevelNode: SKSpriteNode {
         }
     }
     
-    private func setUpHelpNode(){
+    private func setupHelpNode(){
         let texture = SKTexture(image: ImageManager.imageForHelpSymbol())
-        let helpNode = SKSpriteNode(texture: texture)
+        helpNode = SKSpriteNode(texture: texture)
         helpNode.position = CGPointMake(25, 25)
         helpNode.zPosition = 20
         helpNode.alpha = 0.0
@@ -156,6 +163,8 @@ class LevelNode: SKSpriteNode {
         self.backgroundNode.physicsBody?.allowsRotation = false
         self.backgroundNode.physicsBody?.restitution = 0.5
     }
+    
+    // MARK: - Show level
     
     func transitionToPlayWithDelay(delay: NSTimeInterval) {
         let wait = SKAction.waitForDuration(delay)
@@ -191,13 +200,13 @@ class LevelNode: SKSpriteNode {
                 self.enumerateChildNodesWithName("help", usingBlock: {
                     node, stop in
                     if self.hasTutorial{
-                        node.runAction(SKAction.fadeInWithDuration(duration))
+                        node.alpha = 1
                     }
                 })
                 
                 self.enumerateChildNodesWithName("car") {
                     node, stop in
-                    node.runAction(SKAction.fadeInWithDuration(0))
+                    node.runAction(SKAction.fadeInWithDuration(duration))
                 }
             
             },
@@ -243,11 +252,37 @@ class LevelNode: SKSpriteNode {
         }
     }
     
+    // MARK: - Show help
     
-    func updateScore() {
-        self.scoreNode.text = "Score: \(self.score)"
+    func showHelp(){
+        if let scene = self.parent as? GameScene {
+            let showHelp = SKAction.runBlock { () -> Void in
+                self.backgroundNode.childNodeWithName("levelTitle")?.alpha = 1
+                self.backgroundNode.alpha = 1
+                self.backgroundNode.alpha = 1
+                self.helpNode.alpha = 1
+                
+                self.backgroundNode.enumerateChildNodesWithName("path", usingBlock: {
+                    node, stop in
+                    node.alpha = 0
+                })
+                
+                self.enumerateChildNodesWithName("car") {
+                    node, stop in
+                    node.alpha = 0
+                }
+            }
+            
+            let pause = SKAction.runBlock { () -> Void in
+                scene.paused = true
+            }
+            
+            let sequence = SKAction.sequence([showHelp, pause])
+            self.runAction(sequence)
+        }
     }
     
+    // MARK: -
     
     // Convert a vertex to a point in this level -- depends on the screen size
     // and the number of rows and cols from this level
@@ -269,38 +304,5 @@ class LevelNode: SKSpriteNode {
             let car = node as! Car
             car.update(timeSinceLastUpdate)
         }
-    }
-    
-    func showHelp(scene: SKScene){
-        let showHelp = SKAction.runBlock { () -> Void in
-            self.backgroundNode.childNodeWithName("levelNum")?.runAction(SKAction.fadeInWithDuration(0))
-            self.backgroundNode.childNodeWithName("levelGoal")?.runAction(SKAction.fadeInWithDuration(0))
-            self.backgroundNode.childNodeWithName("tutorial")?.runAction(SKAction.fadeInWithDuration(0))
-            
-            self.backgroundNode.enumerateChildNodesWithName("path", usingBlock: {
-                node, stop in
-                node.runAction(SKAction.fadeOutWithDuration(0))
-            })
-            
-            self.enumerateChildNodesWithName("help", usingBlock: {
-                node, stop in
-                if self.hasTutorial{
-                    node.runAction(SKAction.fadeOutWithDuration(0))
-                }
-            })
-            
-            self.enumerateChildNodesWithName("car") {
-                node, stop in
-                node.runAction(SKAction.fadeOutWithDuration(0))
-            }
-
-        }
-        
-        let pause = SKAction.runBlock { () -> Void in
-            scene.paused = true
-        }
-        
-        let sequence = SKAction.sequence([showHelp, pause])
-        self.runAction(sequence)
     }
 }
