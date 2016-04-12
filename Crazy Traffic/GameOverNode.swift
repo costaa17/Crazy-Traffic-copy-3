@@ -9,7 +9,7 @@
 import SpriteKit
 
 
-class GameOver: SKSpriteNode {
+class GameOverNode: SKSpriteNode {
     let carLabelNode: SKLabelNode
     
     required init?(coder aDecoder: NSCoder) {

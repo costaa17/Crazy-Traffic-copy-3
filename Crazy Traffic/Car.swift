@@ -29,14 +29,14 @@ class Car: SKSpriteNode {
     let bezierPath: UIBezierPath
     
     // Reference to level in which this car exists. Used to check for other cars on the path
-    weak var level: Level!
+    weak var level: LevelNode!
     
     let mySpeed: CGFloat
     var currentSpeed: CGFloat = 0
     var pos: CGFloat = 0
     
     
-    init(level: Level, pathIndex: Int) {
+    init(level: LevelNode, pathIndex: Int) {
         // Assign a unique id. Cars that have a lower id (added earlier) are in front of cars
         // that have a higher id (added later).
         self.id = level.nextCarID
@@ -90,7 +90,7 @@ class Car: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addToLevel(level: Level) {
+    func addToLevel(level: LevelNode) {
         level.addChild(self)
         self.updateLocation()
     }

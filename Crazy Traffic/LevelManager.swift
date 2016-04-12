@@ -12,7 +12,7 @@ import SpriteKit
 
 class LevelManager {
     
-    class func loadLevel(levelNum: Int) -> Level? {
+    class func loadLevel(levelNum: Int) -> LevelNode? {
         let path = NSBundle.mainBundle().pathForResource("Level\(levelNum)", ofType: "json")
         
         var dataString = ""
@@ -24,7 +24,7 @@ class LevelManager {
         }
         
         if let levelDict = convertJSONStringToDictionary(dataString) {
-            return Level(data: levelDict)
+            return LevelNode(data: levelDict)
         } else {
             print("Error loading level \(levelNum)")
         }
