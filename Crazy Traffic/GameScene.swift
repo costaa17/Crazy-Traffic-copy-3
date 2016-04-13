@@ -99,7 +99,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             car.edgeHitCount += 1
             if car.edgeHitCount > 1 {
                 self.levelNode.score += 1
-                self.levelNode.updateScore()
                 car.removeFromParent()
             }
         }
@@ -121,11 +120,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     }
                 }
             }
-        } else if self.currentScreen == .LevelIntro ||  self.currentScreen == .Help{
+        } else if self.currentScreen == .LevelIntro || self.currentScreen == .Help {
             // Tap on the intro screen immediately goes to play screen
             self.paused = false
-            self.levelScreen.removeActionForKey("intro_transition")
-            self.levelScreen.transitionToPlay()
+            self.levelNode.removeActionForKey("intro_transition")
+            self.levelNode.transitionToPlay()
             
         } else if self.currentScreen == .LevelPlay {
             self.touchedNode = nil
@@ -135,7 +134,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     self.touchedNode = node
                     
                 } else if node.name == "help" {
-                    self.levelScreen.showHelp(self)
+                    self.levelNode.showHelp()
                     self.currentScreen = .Help
                 }
             }
