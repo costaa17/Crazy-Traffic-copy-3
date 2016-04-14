@@ -69,7 +69,8 @@ class Car: SKSpriteNode {
         
         self.name = "car"
         self.zPosition = 21
-        let carBodyPath = UIBezierPath(roundedRect: CGRectMake(3-17, 1-30, 34, 60), cornerRadius: 12)
+        let physicsBodyOffset = CGPoint(x: -20, y: -29)
+        let carBodyPath = UIBezierPath(roundedRect: CGRectMake(physicsBodyOffset.x, physicsBodyOffset.y, 34, 60), cornerRadius: 12)
         self.physicsBody = SKPhysicsBody(polygonFromPath: carBodyPath.CGPath)
         self.physicsBody?.categoryBitMask = CollisionTypes.Car.rawValue
         self.physicsBody?.collisionBitMask = CollisionTypes.None.rawValue
