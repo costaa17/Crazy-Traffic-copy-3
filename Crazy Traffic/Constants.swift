@@ -44,7 +44,7 @@ let CAR_2_COLOR_STROKE = UIColor.blackColor()
 
 let ROAD_COLOR = UIColor.whiteColor()
 
-let LEVEL_SELECT_COLOR = UIColor.blackColor()
+let LEVEL_SELECT_COLOR = UIColor.darkGrayColor()
 
 let FAST_CAR_MULT: CGFloat = 6.0
 let SLOW_CAR_MULT: CGFloat = 0.0

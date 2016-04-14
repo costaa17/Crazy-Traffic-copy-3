@@ -70,7 +70,7 @@ class LevelNode: SKSpriteNode {
     }
     
     private func setupScoreNode() {
-        self.scoreNode = SKLabelNode(text: "Score: 9999")
+        self.scoreNode = SKLabelNode()
         self.scoreNode.fontName = FONT_NAME
         self.scoreNode.fontSize = FONT_SIZE_M
         self.scoreNode.horizontalAlignmentMode = .Right
@@ -78,6 +78,17 @@ class LevelNode: SKSpriteNode {
         self.scoreNode.position = CGPoint(x: CGRectGetMaxX(self.frame)-CGRectGetWidth(self.scoreNode.frame), y: CGRectGetMaxY(self.frame)-CGRectGetHeight(self.scoreNode.frame)-5)
         self.scoreNode.zPosition = 20
         self.addChild(self.scoreNode)
+    }
+    
+    private func setupHelpNode(){
+        if self.hasTutorial {
+            self.helpNode = SKSpriteNode(texture: SKTexture(image: ImageManager.imageForHelpSymbol()))
+            self.helpNode.position = CGPointMake(25, 25)
+            self.helpNode.zPosition = 20
+            self.helpNode.alpha = 0.0
+            self.helpNode.name = "help"
+            self.addChild(helpNode)
+        }
     }
     
     private func setupGroundNode() {
@@ -132,16 +143,6 @@ class LevelNode: SKSpriteNode {
         }
     }
     
-    private func setupHelpNode(){
-        let texture = SKTexture(image: ImageManager.imageForHelpSymbol())
-        helpNode = SKSpriteNode(texture: texture)
-        helpNode.position = CGPointMake(25, 25)
-        helpNode.zPosition = 20
-        helpNode.alpha = 0.0
-        helpNode.name = "help"
-        self.addChild(helpNode)
-    }
-    
     func activatePhysics() {
         // Borders
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
@@ -180,6 +181,10 @@ class LevelNode: SKSpriteNode {
     }
     
     func transitionToPlay() {
+        // Remove any existing transition
+        self.removeActionForKey("intro_transition")
+        
+        // Transition to play immediately
         let transition = getTransitionToPlayActionWithDuration(0.0)
         
         let finished = SKAction.runBlock { () -> Void in
@@ -193,22 +198,16 @@ class LevelNode: SKSpriteNode {
     private func getTransitionToPlayActionWithDuration(duration: NSTimeInterval) -> SKAction {
         let transition = SKAction.group([
             SKAction.runBlock { () -> Void in
-                self.backgroundNode.enumerateChildNodesWithName("path", usingBlock: {
-                    node, stop in
+                // Fade in paths
+                self.backgroundNode.enumerateChildNodesWithName("path", usingBlock: { node, stop in
                     node.runAction(SKAction.fadeInWithDuration(duration))
                 })
-                self.enumerateChildNodesWithName("help", usingBlock: {
-                    node, stop in
-                    if self.hasTutorial{
-                        node.alpha = 1
-                    }
-                })
-                
-                self.enumerateChildNodesWithName("car") {
-                    node, stop in
+                // Fade in car nodes
+                self.enumerateChildNodesWithName("car") { node, stop in
                     node.runAction(SKAction.fadeInWithDuration(duration))
                 }
-            
+                // Fade in help node
+                self.childNodeWithName("help")?.runAction(SKAction.fadeInWithDuration(duration))
             },
             SKAction.runBlock { () -> Void in
                 self.backgroundNode.childNodeWithName("levelNum")?.runAction(SKAction.fadeOutWithDuration(duration))
@@ -220,65 +219,72 @@ class LevelNode: SKSpriteNode {
     
     private func finishedTransitionToPlay() {
         // Level intro has either finished delay or the user tapped the screen
-        
-        self.physicsBody?.dynamic = false
+        self.backgroundNode.physicsBody?.restitution = 0
+        self.backgroundNode.physicsBody?.dynamic = false
         self.backgroundNode.position = CGPointZero
         
         if let scene = self.parent as? GameScene {
-            let currentScreen = scene.currentScreen
             scene.currentScreen = Screen.LevelPlay
             
-            if currentScreen == .LevelIntro{
-                if DEBUG_MODE {
-                    // Test car collisions
-                    let pathIndex = 0
-                    let wait = SKAction.waitForDuration(2)
+            // Start spawning cars
+            if DEBUG_MODE {
+                let pathIndex = 0
+                let wait = SKAction.waitForDuration(2)
+                let spawn = SKAction.runBlock {
+                    let _ = Car(level: self, pathIndex: pathIndex)
+                }
+                let sequence = SKAction.sequence([wait, spawn])
+                self.runAction(SKAction.repeatActionForever(sequence))
+            } else {
+                for i in 0 ..< self.paths.count {
+                    let wait = SKAction.waitForDuration(10, withRange: 10)
                     let spawn = SKAction.runBlock {
-                        let _ = Car(level: self, pathIndex: pathIndex)
+                        let _ = Car(level: self, pathIndex: i)
                     }
                     let sequence = SKAction.sequence([wait, spawn])
                     self.runAction(SKAction.repeatActionForever(sequence))
-                } else {
-                    for i in 0 ..< self.paths.count {
-                        let wait = SKAction.waitForDuration(10, withRange: 10)
-                        let spawn = SKAction.runBlock {
-                            let _ = Car(level: self, pathIndex: i)
-                        }
-                        let sequence = SKAction.sequence([wait, spawn])
-                        self.runAction(SKAction.repeatActionForever(sequence))
-                    }
                 }
             }
         }
     }
     
-    // MARK: - Show help
+    // MARK: - Help
     
-    func showHelp(){
+    func showHelpScreen(){
         if let scene = self.parent as? GameScene {
-            let showHelp = SKAction.runBlock { () -> Void in
-                self.backgroundNode.childNodeWithName("levelTitle")?.alpha = 1
-                self.backgroundNode.alpha = 1
-                self.backgroundNode.alpha = 1
-                self.helpNode.alpha = 1
-                
-                self.backgroundNode.enumerateChildNodesWithName("path", usingBlock: {
-                    node, stop in
-                    node.alpha = 0
-                })
-                
-                self.enumerateChildNodesWithName("car") {
-                    node, stop in
-                    node.alpha = 0
-                }
+            // Hide paths and cars
+            self.backgroundNode.enumerateChildNodesWithName("path") { node, stop in
+                node.alpha = 0
             }
-            
-            let pause = SKAction.runBlock { () -> Void in
-                scene.paused = true
+            self.enumerateChildNodesWithName("car") { node, stop in
+                node.alpha = 0
             }
+            // Show level help
+            self.backgroundNode.childNodeWithName("levelNum")?.alpha = 1
+            self.backgroundNode.childNodeWithName("levelGoal")?.alpha = 1
+            self.backgroundNode.childNodeWithName("tutorial")?.alpha = 1
             
-            let sequence = SKAction.sequence([showHelp, pause])
-            self.runAction(sequence)
+            scene.paused = true
+            scene.currentScreen = Screen.Help
+        }
+    }
+    
+    func hideHelpScreen() {
+        if let scene = self.parent as? GameScene {
+            // Hide paths and cars
+            self.backgroundNode.enumerateChildNodesWithName("path") { node, stop in
+                node.alpha = 1
+            }
+            self.enumerateChildNodesWithName("car") { node, stop in
+                node.alpha = 1
+            }
+            // Hide level help
+            self.backgroundNode.childNodeWithName("levelNum")?.alpha = 0
+            self.backgroundNode.childNodeWithName("levelGoal")?.alpha = 0
+            self.backgroundNode.childNodeWithName("tutorial")?.alpha = 0
+            
+            scene.paused = false
+            scene.currentScreen = Screen.LevelPlay
         }
     }
     

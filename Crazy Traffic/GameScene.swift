@@ -120,36 +120,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     }
                 }
             }
-        } else if self.currentScreen == .LevelIntro || self.currentScreen == .Help {
+        } else if self.currentScreen == .LevelIntro {
             // Tap on the intro screen immediately goes to play screen
-            self.paused = false
-            self.levelNode.removeActionForKey("intro_transition")
             self.levelNode.transitionToPlay()
-            
         } else if self.currentScreen == .LevelPlay {
             self.touchedNode = nil
             if let initialTouchLocation = touches.first?.locationInNode(self) {
                 let node = self.nodeAtPoint(initialTouchLocation)
                 if node.name == "car" {
                     self.touchedNode = node
-                    
                 } else if node.name == "help" {
-                    self.levelNode.showHelp()
-                    self.currentScreen = .Help
+                    self.levelNode.showHelpScreen()
                 }
             }
+        } else if self.currentScreen == .Help {
+            self.levelNode.hideHelpScreen()
         } else if self.currentScreen == .GameOver {
             // Go back to the level select screen
             self.levelNode.removeFromParent()
             self.levelNode = nil
-            
             self.gameOverNode.hide()
         }
     }
         
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if self.currentScreen == .LevelPlay {
-            
             if let car = self.touchedNode as? Car {
                 car.slowDown()
             }
