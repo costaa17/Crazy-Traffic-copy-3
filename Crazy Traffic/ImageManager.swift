@@ -134,6 +134,46 @@ class ImageManager {
         return image
     }
     
+    class func imageForPerson() -> UIImage {
+        let size: CGSize = CGSize(width: 67, height: 39);
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        //// Color Declarations
+        let color2 = UIColor(red: 0.181, green: 0.157, blue: 0.157, alpha: 1.000)
+        
+        //// Shirt Drawing
+        let shirtPath = UIBezierPath(ovalInRect: CGRectMake(1, 6, 66, 27))
+        UIColor.whiteColor().setFill()
+        shirtPath.fill()
+        UIColor.blackColor().setStroke()
+        shirtPath.lineWidth = 2
+        shirtPath.stroke()
+        
+        //// head Drawing
+        let headPath = UIBezierPath(ovalInRect: CGRectMake(15, 0, 39, 39))
+        UIColor.blackColor().setFill()
+        headPath.fill()
+        
+        //// Left arm Drawing
+        let leftArmPath = UIBezierPath()
+        leftArmPath.moveToPoint(CGPointMake(0.21, 19))
+        leftArmPath.addCurveToPoint(CGPointMake(8, 8), controlPoint1: CGPointMake(0.21, 19), controlPoint2: CGPointMake(-2.01, 8))
+        color2.setFill()
+        leftArmPath.fill()
+        
+        //// Rigth arm Drawing
+        let rigthArmPath = UIBezierPath()
+        rigthArmPath.moveToPoint(CGPointMake(66.79, 17))
+        rigthArmPath.addCurveToPoint(CGPointMake(59, 6), controlPoint1: CGPointMake(66.79, 17), controlPoint2: CGPointMake(69.01, 6))
+        color2.setFill()
+        rigthArmPath.fill()
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+
+    }
+    
     class func imageForHelpSymbol() -> UIImage {
         let size: CGSize = CGSize(width: 38, height: 38);
         

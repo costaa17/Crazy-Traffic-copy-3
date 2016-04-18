@@ -18,6 +18,8 @@ let FONT_SIZE_M: CGFloat =   18.0   // Tutorial text, score
 
 let VARIABLE_CAR_SPEED = false
 
+let PERSON_SPEED: CGFloat = 60.0
+
 // For constant car speed
 let CAR_SPEED: CGFloat = 100.0
 

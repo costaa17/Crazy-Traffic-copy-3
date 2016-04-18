@@ -22,6 +22,7 @@ enum CollisionTypes: UInt32 {
     case LevelBackground = 4
     case LevelBorder = 8
     case Car = 16
+    case Person = 32
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
