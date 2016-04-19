@@ -20,6 +20,7 @@ let VARIABLE_CAR_SPEED = false
 
 // For constant car speed
 let CAR_SPEED: CGFloat = 100.0
+let PERSON_SPEED: CGFloat = 50.0
 
 // For variable car speeds
 let CAR_1_SPEED: CGFloat =   50.0
@@ -43,6 +44,8 @@ let CAR_2_COLOR_WHEEL  = UIColor.blackColor()
 let CAR_2_COLOR_STROKE = UIColor.blackColor()
 
 let ROAD_COLOR = UIColor.whiteColor()
+let WALK_COLOR = UIColor.lightGrayColor()
+let CROSS_COLOR = UIColor.darkGrayColor()
 
 let LEVEL_SELECT_COLOR = UIColor.darkGrayColor()
 

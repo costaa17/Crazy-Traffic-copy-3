@@ -13,6 +13,7 @@ class Path {
     enum PathType: String {
         case Road = "Road"
         case Rail = "Rail"
+        case Walk = "Walk"
     }
     
     var type: PathType

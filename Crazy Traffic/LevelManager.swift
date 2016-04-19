@@ -56,6 +56,8 @@ class LevelManager {
                     switch pathTypeString {
                     case "Rail":
                         pathType = Path.PathType.Rail
+                    case "Walk":
+                        pathType = Path.PathType.Walk
                     default:
                         pathType = Path.PathType.Road
                     }

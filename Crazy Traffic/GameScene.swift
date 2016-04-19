@@ -16,13 +16,12 @@ enum Screen {
     case Help
 }
 
-enum CollisionTypes: UInt32 {
-    case None = 1
-    case LevelGround = 2
-    case LevelBackground = 4
-    case LevelBorder = 8
-    case Car = 16
-}
+let CollisionTypeNone: UInt32            = 1
+let CollisionTypeLevelGround: UInt32     = 2
+let CollisionTypeLevelBackground: UInt32 = 4
+let CollisionTypeLevelBorder: UInt32     = 8
+let CollisionTypeCar: UInt32             = 16
+let CollisionTypePerson: UInt32          = 32
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var currentScreen: Screen = .LevelSelect
@@ -78,7 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
         let bodies = getOrderedBodies(contact)
         
-        if bodies.firstBody.categoryBitMask == CollisionTypes.Car.rawValue && bodies.secondBody.categoryBitMask == CollisionTypes.Car.rawValue {
+        if bodies.firstBody.categoryBitMask == CollisionTypeCar && bodies.secondBody.categoryBitMask == CollisionTypeCar {
             // Car hit a car
             let car1 = bodies.firstBody.node as! Car
             let car2 = bodies.secondBody.node as! Car
@@ -93,7 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didEndContact(contact: SKPhysicsContact) {
         let bodies = getOrderedBodies(contact)
         
-        if bodies.firstBody.categoryBitMask == CollisionTypes.LevelBorder.rawValue && bodies.secondBody.categoryBitMask == CollisionTypes.Car.rawValue {
+        if bodies.firstBody.categoryBitMask == CollisionTypeLevelBorder && bodies.secondBody.categoryBitMask == CollisionTypeCar {
             // Car hit the edge of the level
             let car = bodies.secondBody.node as! Car
             car.edgeHitCount += 1
@@ -127,7 +126,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.touchedNode = nil
             if let initialTouchLocation = touches.first?.locationInNode(self) {
                 let node = self.nodeAtPoint(initialTouchLocation)
-                if node.name == "car" {
+                if node.name == "path_follower" {
                     self.touchedNode = node
                 } else if node.name == "help" {
                     self.levelNode.showHelpScreen()

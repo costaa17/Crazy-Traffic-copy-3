@@ -23,6 +23,9 @@
 		0567EDF71C895E5100729F98 /* Level1.json in Resources */ = {isa = PBXBuildFile; fileRef = 0567EDF61C895E5100729F98 /* Level1.json */; };
 		0567EDF91C8A7ECA00729F98 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567EDF81C8A7ECA00729F98 /* LevelManager.swift */; };
 		057779A91CAEE2A20060BFE9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057779A81CAEE2A20060BFE9 /* Constants.swift */; };
+		057779EA1CC350800060BFE9 /* Level2.json in Resources */ = {isa = PBXBuildFile; fileRef = 057779E91CC350800060BFE9 /* Level2.json */; };
+		057779EC1CC49E2F0060BFE9 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057779EB1CC49E2F0060BFE9 /* Person.swift */; };
+		057779EE1CC557430060BFE9 /* PathFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057779ED1CC557430060BFE9 /* PathFollower.swift */; };
 		05C7357C1CA1CC0A00B242F2 /* LevelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C7357B1CA1CC0A00B242F2 /* LevelNode.swift */; };
 		05C7357E1CA3706400B242F2 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C7357D1CA3706400B242F2 /* Car.swift */; };
 		24E968581CB70F510042FB79 /* Useful.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E968571CB70F510042FB79 /* Useful.swift */; };
@@ -49,6 +52,9 @@
 		0567EDF61C895E5100729F98 /* Level1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level1.json; sourceTree = "<group>"; };
 		0567EDF81C8A7ECA00729F98 /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		057779A81CAEE2A20060BFE9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		057779E91CC350800060BFE9 /* Level2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level2.json; sourceTree = "<group>"; };
+		057779EB1CC49E2F0060BFE9 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		057779ED1CC557430060BFE9 /* PathFollower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathFollower.swift; sourceTree = "<group>"; };
 		05C7357B1CA1CC0A00B242F2 /* LevelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelNode.swift; sourceTree = "<group>"; };
 		05C7357D1CA3706400B242F2 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		24E968571CB70F510042FB79 /* Useful.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Useful.swift; sourceTree = "<group>"; };
@@ -106,8 +112,8 @@
 				0567EDED1C89189100729F98 /* ImageManager.swift */,
 				05C7357B1CA1CC0A00B242F2 /* LevelNode.swift */,
 				0519ED471CAC72C8008CAB28 /* GameOverNode.swift */,
-				05C7357D1CA3706400B242F2 /* Car.swift */,
 				24E968571CB70F510042FB79 /* Useful.swift */,
+				057779EF1CC58BA40060BFE9 /* Path Followers */,
 				0540FC031C99EAE800FB6927 /* Paths */,
 				0567EDF51C895E4400729F98 /* Levels */,
 				0567EDDF1C890C6A00729F98 /* Main.storyboard */,
@@ -122,8 +128,19 @@
 			isa = PBXGroup;
 			children = (
 				0567EDF61C895E5100729F98 /* Level1.json */,
+				057779E91CC350800060BFE9 /* Level2.json */,
 			);
 			name = Levels;
+			sourceTree = "<group>";
+		};
+		057779EF1CC58BA40060BFE9 /* Path Followers */ = {
+			isa = PBXGroup;
+			children = (
+				057779ED1CC557430060BFE9 /* PathFollower.swift */,
+				05C7357D1CA3706400B242F2 /* Car.swift */,
+				057779EB1CC49E2F0060BFE9 /* Person.swift */,
+			);
+			name = "Path Followers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +204,7 @@
 				0567EDDA1C890C6A00729F98 /* GameScene.sks in Resources */,
 				0567EDF71C895E5100729F98 /* Level1.json in Resources */,
 				0567EDE61C890C6A00729F98 /* LaunchScreen.storyboard in Resources */,
+				057779EA1CC350800060BFE9 /* Level2.json in Resources */,
 				0567EDE31C890C6A00729F98 /* Assets.xcassets in Resources */,
 				0567EDE11C890C6A00729F98 /* Main.storyboard in Resources */,
 			);
@@ -199,9 +217,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				057779EC1CC49E2F0060BFE9 /* Person.swift in Sources */,
 				0540FC071C99EB0900FB6927 /* PathVertex.swift in Sources */,
 				05C7357C1CA1CC0A00B242F2 /* LevelNode.swift in Sources */,
 				05C7357E1CA3706400B242F2 /* Car.swift in Sources */,
+				057779EE1CC557430060BFE9 /* PathFollower.swift in Sources */,
 				0567EDDC1C890C6A00729F98 /* GameScene.swift in Sources */,
 				057779A91CAEE2A20060BFE9 /* Constants.swift in Sources */,
 				0540FC021C99EAE200FB6927 /* Path.swift in Sources */,

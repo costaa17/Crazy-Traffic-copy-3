@@ -189,6 +189,11 @@ static void bezierSubpathFunction(void *info, CGPathElement const *element) {
 	}
 }
 
+- (CGPoint)pointAtPercentOfLength:(CGFloat)percent {
+    CGFloat tan = 0;
+    return [self pointAtPercentOfLength:percent tangent:&tan];
+}
+
 #pragma mark - Math helpers
 
 CGFloat linearLineLength(CGPoint fromPoint, CGPoint toPoint) {

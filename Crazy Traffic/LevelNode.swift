@@ -133,7 +133,11 @@ class LevelNode: SKSpriteNode {
         tutorialTextNode.position = CGPoint(x: center.x, y: center.y - 30)
         self.backgroundNode.addChild(tutorialTextNode)
         
+        // First pass add all paths that are not walking paths
         for path in self.paths {
+            if path.type == Path.PathType.Walk {
+                continue
+            }
             let shapeNode = SKShapeNode(path: path.CGPath(self))
             shapeNode.name = "path"
             shapeNode.strokeColor = ROAD_COLOR
@@ -141,26 +145,88 @@ class LevelNode: SKSpriteNode {
             shapeNode.alpha = 0.0
             self.backgroundNode.addChild(shapeNode)
         }
+        // Second pass add all walking paths and crosswalks
+        for path in self.paths {
+            if path.type != Path.PathType.Walk {
+                continue
+            }
+            let shapeNode = SKShapeNode(path: path.CGPath(self))
+            shapeNode.name = "path"
+            shapeNode.strokeColor = WALK_COLOR
+            shapeNode.lineWidth = 20
+            shapeNode.alpha = 0.0
+            self.backgroundNode.addChild(shapeNode)
+            
+            self.addCrossWalkToPath(path)
+        }
+    }
+    
+    private func addCrossWalkToPath(path: Path) {
+        // Check if this walk path intersects with any roads
+        for path2 in self.paths {
+            if path2.type == Path.PathType.Road {
+                let walkPath = UIBezierPath(CGPath: path.CGPath(self))
+                let roadPath = CGPathCreateCopyByStrokingPath(path2.CGPath(self), nil, calculatePathWidth(), CGLineCap.Butt, CGLineJoin.Miter, 0.0)
+                
+                var startPoint: CGPoint!
+                var endPoint: CGPoint!
+                var prevPoint: CGPoint!
+                
+                // Check for intersections every 1 percent
+                for p in 0.0.stride(through: 1.0, by: 0.01) {
+                    let point = walkPath.pointAtPercentOfLength(CGFloat(p))
+                    
+                    if CGPathContainsPoint(roadPath, nil, point, true) {
+                        // The road path contains this point from the walk path
+                        if startPoint == nil {
+                            startPoint = point
+                        }
+                    } else {
+                        if startPoint != nil && endPoint == nil {
+                            endPoint = prevPoint
+                        }
+                    }
+                    
+                    prevPoint = point
+                }
+                
+                if startPoint != nil && endPoint != nil {
+                    let crossWalk = UIBezierPath()
+                    crossWalk.moveToPoint(startPoint)
+                    crossWalk.addLineToPoint(endPoint)
+                    
+                    let pattern: [CGFloat] = [7.0, 7.0]
+                    let dashed = CGPathCreateCopyByDashingPath(crossWalk.CGPath, nil, 0, pattern, 2)
+                    let shapeNode = SKShapeNode(path: dashed!)
+                    shapeNode.name = "path"
+                    shapeNode.strokeColor = ROAD_COLOR
+                    shapeNode.lineWidth = 30
+                    shapeNode.alpha = 0.0
+                    self.backgroundNode.addChild(shapeNode)
+                    
+                }
+            }
+        }
     }
     
     func activatePhysics() {
         // Borders
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
-        self.physicsBody?.categoryBitMask = CollisionTypes.LevelBorder.rawValue
-        self.physicsBody?.contactTestBitMask = CollisionTypes.Car.rawValue
-        self.physicsBody?.collisionBitMask = CollisionTypes.None.rawValue
+        self.physicsBody?.categoryBitMask = CollisionTypeLevelBorder
+        self.physicsBody?.contactTestBitMask = CollisionTypeCar
+        self.physicsBody?.collisionBitMask = CollisionTypeNone
         self.physicsBody?.usesPreciseCollisionDetection = true
         
         // Ground physics to stop the falling background
         self.groundNode.physicsBody = SKPhysicsBody(rectangleOfSize: self.groundNode.size, center: CGPoint(x: self.groundNode.size.width/2, y: self.groundNode.size.height/2))
-        self.groundNode.physicsBody?.categoryBitMask = CollisionTypes.LevelGround.rawValue
-        self.groundNode.physicsBody?.collisionBitMask = CollisionTypes.LevelBackground.rawValue
+        self.groundNode.physicsBody?.categoryBitMask = CollisionTypeLevelGround
+        self.groundNode.physicsBody?.collisionBitMask = CollisionTypeLevelBackground
         self.groundNode.physicsBody?.dynamic = false
         
         // The background is where all of the paths are stored. It starts above the screen and will start to fall when the physics are activated, stopping at the ground.
         self.backgroundNode.physicsBody = SKPhysicsBody(rectangleOfSize: self.backgroundNode.size, center: CGPoint(x: self.backgroundNode.size.width/2, y: self.backgroundNode.size.height/2))
-        self.backgroundNode.physicsBody?.categoryBitMask = CollisionTypes.LevelBackground.rawValue
-        self.backgroundNode.physicsBody?.collisionBitMask = CollisionTypes.LevelGround.rawValue
+        self.backgroundNode.physicsBody?.categoryBitMask = CollisionTypeLevelBackground
+        self.backgroundNode.physicsBody?.collisionBitMask = CollisionTypeLevelGround
         self.backgroundNode.physicsBody?.allowsRotation = false
         self.backgroundNode.physicsBody?.restitution = 0.5
     }
@@ -223,10 +289,13 @@ class LevelNode: SKSpriteNode {
         self.backgroundNode.physicsBody?.dynamic = false
         self.backgroundNode.position = CGPointZero
         
+        self.startSpawningCars()
+    }
+    
+    private func startSpawningCars() {
         if let scene = self.parent as? GameScene {
             scene.currentScreen = Screen.LevelPlay
             
-            // Start spawning cars
             if DEBUG_MODE {
                 let pathIndex = 0
                 let wait = SKAction.waitForDuration(2)
@@ -237,9 +306,14 @@ class LevelNode: SKSpriteNode {
                 self.runAction(SKAction.repeatActionForever(sequence))
             } else {
                 for i in 0 ..< self.paths.count {
-                    let wait = SKAction.waitForDuration(10, withRange: 10)
+                    let wait = SKAction.waitForDuration(5, withRange: 5)
                     let spawn = SKAction.runBlock {
-                        let _ = Car(level: self, pathIndex: i)
+                        if self.paths[i].type == Path.PathType.Road {
+                            let _ = Car(level: self, pathIndex: i)
+                        } else if self.paths[i].type == Path.PathType.Walk {
+                            let _ = Person(level: self, pathIndex: i)
+                        }
+                        self.nextCarID += 1
                     }
                     let sequence = SKAction.sequence([wait, spawn])
                     self.runAction(SKAction.repeatActionForever(sequence))
@@ -305,10 +379,9 @@ class LevelNode: SKSpriteNode {
     }
     
     func update(timeSinceLastUpdate: CFTimeInterval) {
-        self.enumerateChildNodesWithName("car") {
-            node, stop in
-            let car = node as! Car
-            car.update(timeSinceLastUpdate)
+        self.enumerateChildNodesWithName("path_follower") { node, stop in
+            let pathFollower = node as! PathFollower
+            pathFollower.update(timeSinceLastUpdate)
         }
     }
 }
