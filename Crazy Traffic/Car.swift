@@ -10,53 +10,68 @@ import SpriteKit
 
 
 class Car: PathFollower {
-    var carSpeed: CGFloat = 0
     
     init(level: LevelNode, pathIndex: Int) {
-        if VARIABLE_CAR_SPEED {
+        var speed: CGFloat = 0
+        if VARIABLE_CAR_SPEED == true {
             switch Useful.random(min: 1, max: 5) {
             case 1:
-                self.carSpeed = CAR_1_SPEED
+                speed = CAR_1_SPEED
             case 2:
-                self.carSpeed = CAR_2_SPEED
+                speed = CAR_2_SPEED
             case 3:
-                self.carSpeed = CAR_3_SPEED
+                speed = CAR_3_SPEED
             case 4:
-                self.carSpeed = CAR_4_SPEED
+                speed = CAR_4_SPEED
             case 5:
-                self.carSpeed = CAR_5_SPEED
+                speed = CAR_5_SPEED
             default:
-                self.carSpeed = CAR_SPEED
+                speed = CAR_SPEED
             }
         } else {
-            self.carSpeed = CAR_SPEED
+            speed = CAR_SPEED
         }
         
-        let carImage = ImageManager.imageForCar()
-        let texture = SKTexture(image: carImage)
-        super.init(level: level, pathIndex: pathIndex, texture: texture, color: UIColor.blackColor(), size: carImage.size, speed: carSpeed)
-        self.name = "car"
-        self.zPosition = 21
-        let physicsBodyOffset = CGPoint(x: -20, y: -29)
-        let carBodyPath = UIBezierPath(roundedRect: CGRectMake(physicsBodyOffset.x, physicsBodyOffset.y, 34, 60), cornerRadius: 12)
-        self.physicsBody = SKPhysicsBody(polygonFromPath: carBodyPath.CGPath)
-        self.physicsBody?.categoryBitMask = CollisionTypes.Car.rawValue
-        self.physicsBody?.collisionBitMask = CollisionTypes.None.rawValue
-        self.physicsBody?.contactTestBitMask = CollisionTypes.LevelBorder.rawValue | CollisionTypes.Car.rawValue
+        let physicsPath = UIBezierPath(roundedRect: CGRectMake(-20, -29, 34, 60), cornerRadius: 12)
+        let categoryBitMask = CollisionTypeCar
+        let contactTestBitMask = CollisionTypeLevelBorder | CollisionTypeCar
         
-        self.addToLevel(level)
+        super.init(level: level, pathIndex: pathIndex, speed: speed, image: ImageManager.imageForCar(), physicsPath: physicsPath, categoryBitMask: categoryBitMask, contactTestBitMask: contactTestBitMask)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
- 
-    func speedUp() {
-        super.speedUp(FAST_CAR_MULT)
-    }
     
-    func slowDown() {
-        super.slowDown(SLOW_CAR_MULT)
+    override func update(time: CFTimeInterval) {
+        self.level.enumerateChildNodesWithName("path_follower") { node, stop in
+            let pathFollower = node as! PathFollower
+            if pathFollower.pathIndex == self.pathIndex {
+                if pathFollower.id < self.id {
+                    // car is in front of me
+                    if abs(pathFollower.positionAlongPath - self.positionAlongPath) < (max(self.size.width, self.size.height) + 10) {
+                        // Check if car in front is stopped
+                        if pathFollower.currentSpeed == 0 {
+                            // It's stopped, so we should stop for a while
+                            self.currentSpeed = 0
+                            
+                            // Go back to normal speed in a second
+                            self.goBackToNormalSpeedAfterDelay(2.0)
+                        } else {
+                            // TODO: This could probably be made better.
+                            
+                            // The car in front is not stopped, so we should just slow down
+                            self.currentSpeed = pathFollower.currentSpeed - 10
+                            
+                            // Go back to normal speed
+                            self.goBackToNormalSpeedAfterDelay(2.0)
+                        }
+                    }
+                }
+            }
+        }
+        
+        super.update(time)
     }
     
 }
