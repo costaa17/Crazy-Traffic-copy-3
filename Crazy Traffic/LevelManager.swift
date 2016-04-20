@@ -56,6 +56,8 @@ class LevelManager {
                     switch pathTypeString {
                     case "Rail":
                         pathType = Path.PathType.Rail
+                    case "Walk":
+                        pathType = Path.PathType.Walk
                     default:
                         pathType = Path.PathType.Road
                     }
@@ -80,7 +82,8 @@ class LevelManager {
                     "cols": dict["cols"] as! Int,
                     "backgroundColor": dict["backgroundColor"] as! String,
                     "levelNum": dict["levelNum"] as! Int,
-                    "levelGoal": dict["levelGoal"] as! Int,
+                    "carGoal": dict["carGoal"] as! Int,
+                    "pedGoal": dict["pedGoal"] as! Int,
                     "hasTutorial": dict["hasTutorial"] as! Bool,
                     "tutorialText": dict["tutorialText"] as! String,
                     "paths": paths

@@ -1,8 +1,8 @@
 //
-//  Car.swift
+//  Person.swift
 //  Crazy Traffic
 //
-//  Created by Daniel Weber on 3/23/16.
+//  Created by Daniel Weber on 4/17/16.
 //  Copyright © 2016 Ana Vitoria do Valle Costa. All rights reserved.
 //
 
@@ -12,28 +12,18 @@ import SpriteKit
 class Person: PathFollower {
     
     init(level: LevelNode, pathIndex: Int) {
-        let personImage = ImageManager.imageForCar()
-        let texture = SKTexture(image: personImage)
-        super.init(level: level, pathIndex: pathIndex, texture: texture, color: UIColor.blackColor(), size: personImage.size, speed: PERSON_SPEED)
-        self.name = "person"
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: personImage.size)
-        self.physicsBody?.categoryBitMask = CollisionTypes.Person.rawValue
-        self.physicsBody?.collisionBitMask = CollisionTypes.None.rawValue
-        self.physicsBody?.contactTestBitMask = CollisionTypes.LevelBorder.rawValue | CollisionTypes.Car.rawValue
+        let physicsPath = UIBezierPath(ovalInRect: CGRect(x: -12.5, y: -12.5, width: 25, height: 25))
+        let categoryBitMask = CollisionTypePerson
+        let contactTestBitMask = CollisionTypeLevelBorder | CollisionTypeCar | CollisionTypePerson
         
-        self.addToLevel(level)
+        super.init(level: level, pathIndex: pathIndex, speed: PERSON_SPEED, image: ImageManager.imageForPerson(), physicsPath: physicsPath, categoryBitMask: categoryBitMask, contactTestBitMask: contactTestBitMask)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func speedUp() {
-        super.speedUp(FAST_CAR_MULT)
+    override func update(time: CFTimeInterval) {
+        super.update(time)
     }
-    
-    func slowDown() {
-        super.slowDown(SLOW_CAR_MULT)
-    }
-    
 }

@@ -167,11 +167,10 @@ class ImageManager {
         rigthArmPath.addCurveToPoint(CGPointMake(59, 6), controlPoint1: CGPointMake(66.79, 17), controlPoint2: CGPointMake(69.01, 6))
         color2.setFill()
         rigthArmPath.fill()
-
+        
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
-
     }
     
     class func imageForHelpSymbol() -> UIImage {
@@ -180,18 +179,18 @@ class ImageManager {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         
         //// Color Declarations
-        let helpSimbolColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.000)
+        let helpSymbolColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.000)
         
         //// HelpSymbol Drawing
         let helpSymbolRect = CGRectMake(1, 1, 35, 35)
         let helpSymbolPath = UIBezierPath(ovalInRect: helpSymbolRect)
-        helpSimbolColor.setStroke()
+        helpSymbolColor.setStroke()
         helpSymbolPath.lineWidth = 2.5
         helpSymbolPath.stroke()
         let helpSymbolStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
         helpSymbolStyle.alignment = .Center
         
-        let helpSymbolFontAttributes = [NSFontAttributeName: UIFont(name: "DINAlternate-Bold", size: 30)!, NSForegroundColorAttributeName: helpSimbolColor, NSParagraphStyleAttributeName: helpSymbolStyle]
+        let helpSymbolFontAttributes = [NSFontAttributeName: UIFont(name: "DINAlternate-Bold", size: 30)!, NSForegroundColorAttributeName: helpSymbolColor, NSParagraphStyleAttributeName: helpSymbolStyle]
         
         "?".drawInRect(helpSymbolRect, withAttributes: helpSymbolFontAttributes)
         

@@ -40,14 +40,4 @@ class PathSegment {
             CGPathAddCurveToPoint(path, nil, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y)
         }
     }
-    
-    // Builds a path from the vertices based on the properties of the
-    // passed game level
-    func CGPath(level: LevelNode) -> CGPathRef {
-        
-        // A segment is either 2, 3, or 4 vertices
-        let cgPath = CGPathCreateMutable()
-        
-        return cgPath
-    }
 }
