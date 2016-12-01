@@ -1,0 +1,121 @@
+{
+    "levelNum": 41,
+    "goal": 40,
+    "pedGoal": 0,
+    "carGoal": 0,
+    "tutorialText": "Slide cars forward to go faster \n Slide cars backwards or touch them to stop \n Don't let the cars crash \n collect plastic bags for extra points",
+    "rows": 64,
+    "cols": 112,
+    "backgroundColor": "#000000",
+    "speedMult": 1.1,
+    "intervalMult": 0.9,
+    "paths": [{
+              "type": "Road",
+              "initMaxInterval": "13",
+              "initMinInterval": "4",
+              "maxIntervalLimit": "5",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{52,-12}", "{52,7}"],
+                           ["{52,7}", "{44,14}", "{52,12}"],
+                           ["{44,14}", "{58,52}", "{24,23}", "{33,51}"],
+                           ["{58,52}", "{68,14}", "{81,51}", "{88,23}"],
+                           ["{68,14}", "{60,6}", "{60,13}"],
+                           ["{60,6}", "{60,-12}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "13",
+              "initMinInterval": "4",
+              "maxIntervalLimit": "5",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{1,67}", "{20,48}"],
+                           ["{20,48}", "{36,42}", "{29,39}", "{36,42}"],
+                           ["{36,42}", "{80,32}", "{62,64}", "{81,42}"],
+                           ["{80,32}", "{90,24}", "{78,25}"],
+                           ["{90,24}", "{124,24}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "13",
+              "initMinInterval": "4",
+              "maxIntervalLimit": "5",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{-12,24}", "{126,24}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "13",
+              "initMinInterval": "4",
+              "maxIntervalLimit": "5",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{4,-8}", "{118,76}", "{20,55}", "{63,17}"]
+                           ]
+              }, {
+              "type": "Garbage",
+              "initMaxInterval": "40",
+              "initMinInterval": "25",
+              "maxIntervalLimit": "30",
+              "minIntervalLimit": "25",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{100,66}", "{114,36}", "{110,53}", "{96,46}"]
+                           ]
+              }, {
+              "type": "Garbage",
+              "initMaxInterval": "40",
+              "initMinInterval": "25",
+              "maxIntervalLimit": "30",
+              "minIntervalLimit": "25",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{-8,40}", "{40,-4}", "{16,33}"]
+                           ]
+              }, {
+              "type": "Garbage",
+              "initMaxInterval": "40",
+              "initMinInterval": "25",
+              "maxIntervalLimit": "30",
+              "minIntervalLimit": "25",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{116,16}", "{72,-4}", "{78,19}", "{92,3}"]
+                           ]
+              }, {
+              "type": "Garbage",
+              "initMaxInterval": "40",
+              "initMinInterval": "25",
+              "maxIntervalLimit": "30",
+              "minIntervalLimit": "25",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{18,70}", "{64,72}", "{22,47}", "{56,34}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "13",
+              "initMinInterval": "4",
+              "maxIntervalLimit": "5",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{28,-12}", "{84,-12}", "{22,72}", "{91,73}"]
+                           ]
+              }]
+}

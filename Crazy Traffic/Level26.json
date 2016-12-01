@@ -1,0 +1,80 @@
+{
+    "levelNum": 26,
+    "goal": 30,
+    "pedGoal": 0,
+    "carGoal": 0,
+    "tutorialText": "Slide cars forward to go faster \n Touch cars or pedestrians make them stop \n Don't let the cars crash",
+    "rows": 64,
+    "cols": 112,
+    "backgroundColor": "#000000",
+    "speedMult": 1.1,
+    "intervalMult": 0.9,
+    "paths": [{
+              "type": "Road",
+              "initMaxInterval": "12",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "7",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{-12,16}", "{56,56}", "{32,8}", "{36,56}"],
+                           ["{56,56}", "{124,16}", "{76,56}", "{80,8}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "12",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "7",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{-12,32}", "{124,32}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "12",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "7",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{56,76}", "{56,-12}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "12",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "7",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{4,76}", "{39,-12}", "{35,41}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "12",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "7",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{108,76}", "{72,-12}", "{76,40}"]
+                           ]
+              }, {
+              "type": "CrazyPed",
+              "initMaxInterval": "14",
+              "initMinInterval": "4",
+              "maxIntervalLimit": "7",
+              "minIntervalLimit": "3",
+              "initSpeed": "65.0",
+              "maxSpeed": "75.0",
+              "segments": [
+                           ["{-12,64}", "{123,-4}"]
+                           ]
+              }]
+}

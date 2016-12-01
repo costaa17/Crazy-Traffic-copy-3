@@ -1,0 +1,89 @@
+{
+    "levelNum": 47,
+    "goal": 35,
+    "pedGoal": 0,
+    "carGoal": 0,
+    "tutorialText": "Slide cars forward to go faster \n Touch cars or pedestrians make them stop \n Don't let the cars crash \n collect plastic bags for extra points",
+    "rows": 64,
+    "cols": 112,
+    "backgroundColor": "#000000",
+    "speedMult": 1.1,
+    "intervalMult": 0.9,
+    "paths": [{
+              "type": "Road",
+              "hidden": "0",
+              "initMaxInterval": "7",
+              "initMinInterval": "2",
+              "maxIntervalLimit": "4",
+              "minIntervalLimit": "1",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{-12,60}", "{56,32}", "{18,60}", "{44,32}"],
+                           ["{56,32}", "{124,32}"]
+                           ]
+              }, {
+              "type": "Road",
+              "hidden": "0",
+              "initMaxInterval": "7",
+              "initMinInterval": "2",
+              "maxIntervalLimit": "4",
+              "minIntervalLimit": "1",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{-12,4}", "{56,32}", "{18,2}", "{41,32}"],
+                           ["{56,32}", "{124,32}"]
+                           ]
+              }, {
+              "type": "Road",
+              "hidden": "0",
+              "initMaxInterval": "7",
+              "initMinInterval": "2",
+              "maxIntervalLimit": "4",
+              "minIntervalLimit": "1",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{124,60}", "{56,32}", "{94,60}", "{68,32}"],
+                           ["{56,32}", "{-12,32}"]
+                           ]
+              }, {
+              "type": "Road",
+              "hidden": "0",
+              "initMaxInterval": "7",
+              "initMinInterval": "2",
+              "maxIntervalLimit": "4",
+              "minIntervalLimit": "1",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{124,4}", "{56,32}", "{94,2}", "{68,32}"], 
+                           ["{56,32}", "{-12,32}"]
+                           ]
+              }, {
+              "type": "Walk",
+              "hidden": "0",
+              "initMaxInterval": "10",
+              "initMinInterval": "5",
+              "maxIntervalLimit": "7",
+              "minIntervalLimit": "3",
+              "initSpeed": "65.0",
+              "maxSpeed": "75.0",
+              "segments": [
+                           ["{56,76}", "{56,-12}"]
+                           ]
+              }, {
+              "type": "CrossWalk",
+              "hidden": "0",
+              "initMaxInterval": "15",
+              "initMinInterval": "5",
+              "maxIntervalLimit": "7",
+              "minIntervalLimit": "3",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{56,35}", "{56,29}"]
+                           ]
+              }]
+}

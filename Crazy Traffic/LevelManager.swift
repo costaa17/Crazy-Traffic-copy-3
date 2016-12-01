@@ -12,8 +12,8 @@ import SpriteKit
 
 class LevelManager {
     
-    class func loadLevel(levelNum: Int) -> LevelNode? {
-        let path = NSBundle.mainBundle().pathForResource("Level\(levelNum)", ofType: "json")
+    class func loadLevel(_ levelNum: Int, gs: GameScene) -> LevelNode? {
+        let path = Bundle.main.path(forResource: "Level\(levelNum)", ofType: "json")
         
         var dataString = ""
         
@@ -24,7 +24,7 @@ class LevelManager {
         }
         
         if let levelDict = convertJSONStringToDictionary(dataString) {
-            return LevelNode(data: levelDict)
+            return LevelNode(data: levelDict, size: gs.frame.size)
         } else {
             print("Error loading level \(levelNum)")
         }
@@ -32,22 +32,24 @@ class LevelManager {
         return nil
     }
     
-    /* The level data dictionary is in the following format:
-    * cols  : # of cols
-    * rows  : # of rows
-    * paths : [pathObj]
-    *
-    * where pathObj is a dictionary containing:
-    *
-    * type     : path type (road, rail, etc)
-    * segments : [["(x,y)", "(x,y)"], ["(x,y)", "(x,y)"], etc.]
-    */
-    private class func convertJSONStringToDictionary(dataString: String) -> [String:AnyObject]? {
-        if let data = dataString.dataUsingEncoding(NSUTF8StringEncoding) {
+    /* The level data dictionary is in the following format:  // this is not updated
+     * cols  : # of cols
+     * rows  : # of rows
+     * paths : [pathObj]
+     *
+     * where pathObj is a dictionary containing:
+     *
+     * type     : path type (road, rail, etc)
+     * segments : [["(x,y)", "(x,y)"], ["(x,y)", "(x,y)"], etc.]
+     */
+    fileprivate class func convertJSONStringToDictionary(_ dataString: String) -> [String:AnyObject]? {
+        if let data = dataString.data(using: String.Encoding.utf8) {
             do {
-                let dict = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String:AnyObject]
+                let dict = try JSONSerialization.jsonObject(with: data, options: []) as! [String:AnyObject]
                 var paths: [Path] = []
                 let pathArray: [[String:AnyObject]] = dict["paths"]! as! [[String : AnyObject]]
+                var garbArray: [Garbage] = [Garbage]()
+                var garbPath1: [PathSegment]? = nil
                 for i in 0 ..< pathArray.count {
                     let pathDict: [String:AnyObject] = pathArray[i]
                     
@@ -58,6 +60,12 @@ class LevelManager {
                         pathType = Path.PathType.Rail
                     case "Walk":
                         pathType = Path.PathType.Walk
+                    case "CrazyPed":
+                        pathType = Path.PathType.CrazyPed
+                    case "CrossWalk":
+                        pathType = Path.PathType.CrossWalk
+                    case "Garbage":
+                        pathType = Path.PathType.Garbage
                     default:
                         pathType = Path.PathType.Road
                     }
@@ -74,19 +82,30 @@ class LevelManager {
                         }
                         segments.append(PathSegment(vertices: vertices))
                     }
-                    paths.append(Path(type: pathType, segments: segments))
+                    
+                    let initMinInterval = pathDict["initMinInterval"] as! String
+                    let initMaxInterval = pathDict["initMaxInterval"] as! String
+                    let maxIntervalLimit = pathDict["maxIntervalLimit"] as! String
+                    let minIntervalLimit = pathDict["minIntervalLimit"] as! String
+                    let initSpeed = pathDict["initSpeed"] as! String
+                    let maxSpeed = pathDict["maxSpeed"] as! String
+                    paths.append(Path(type: pathType, segments: segments, initMaxInterval: Float(initMaxInterval)!, initMinInterval: Float(initMinInterval)!, maxIntervalLimit: UInt32(maxIntervalLimit)!, minIntervalLimit: UInt32(minIntervalLimit)!, initSpeed: CGFloat(Float(initSpeed)!), maxSpeed: CGFloat(Float(maxSpeed)!)))
+                    
                 }
                 
                 return [
-                    "rows": dict["rows"] as! Int,
-                    "cols": dict["cols"] as! Int,
-                    "backgroundColor": dict["backgroundColor"] as! String,
-                    "levelNum": dict["levelNum"] as! Int,
-                    "carGoal": dict["carGoal"] as! Int,
-                    "pedGoal": dict["pedGoal"] as! Int,
-                    "hasTutorial": dict["hasTutorial"] as! Bool,
-                    "tutorialText": dict["tutorialText"] as! String,
-                    "paths": paths
+                    "rows": dict["rows"] as! Int as AnyObject,
+                    "cols": dict["cols"] as! Int as AnyObject,
+                    "backgroundColor": dict["backgroundColor"] as! String as AnyObject,
+                    "levelNum": dict["levelNum"] as! Int as AnyObject,
+                    "goal": dict["goal"] as! Int as AnyObject,
+                    "pedGoal": dict["pedGoal"] as! Int as AnyObject,
+                    "carGoal": dict["carGoal"] as! Int as AnyObject,
+                    "tutorialText": dict["tutorialText"] as! String as AnyObject,
+                    "intervalMult": dict["intervalMult"] as! Float as AnyObject,
+                    "speedMult": dict["speedMult"] as! CGFloat as AnyObject,
+                    "paths": paths as AnyObject,
+                    "garbage": garbArray as AnyObject
                 ]
             } catch let error as NSError {
                 print(error)

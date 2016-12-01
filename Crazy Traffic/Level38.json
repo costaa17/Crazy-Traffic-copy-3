@@ -1,0 +1,158 @@
+{
+    "levelNum": 38,
+    "goal": 25,
+    "pedGoal": 12,
+    "carGoal": 0,
+    "tutorialText": "Slide cars forward to go faster \n Touch cars or pedestrians make them stop \n Don't let the cars crash",
+    "rows": 64,
+    "cols": 112,
+    "backgroundColor": "#000000",
+    "speedMult": 1.1,
+    "intervalMult": 0.9,
+    "paths": [{
+              "type": "Road",
+              "initMaxInterval": "6",
+              "initMinInterval": "2",
+              "maxIntervalLimit": "3",
+              "minIntervalLimit": "1",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{60,-12}", "{60,76}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "6",
+              "initMinInterval": "2",
+              "maxIntervalLimit": "3",
+              "minIntervalLimit": "1",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{52,76}", "{52,-12}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "6",
+              "initMinInterval": "2",
+              "maxIntervalLimit": "3",
+              "minIntervalLimit": "1",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{-12,28}", "{124,28}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "6",
+              "initMinInterval": "2",
+              "maxIntervalLimit": "3",
+              "minIntervalLimit": "1",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{124,36}", "{-12,36}"]
+                           ]
+              }, {
+              "type": "Walk",
+              "initMaxInterval": "21",
+              "initMinInterval": "15",
+              "maxIntervalLimit": "18",
+              "minIntervalLimit": "10",
+              "initSpeed": "65.0",
+              "maxSpeed": "75.0",
+              "segments": [
+                           ["{44,-12}", "{44,76}"]
+                           ]
+              }, {
+              "type": "Walk",
+              "initMaxInterval": "21",
+              "initMinInterval": "15",
+              "maxIntervalLimit": "18",
+              "minIntervalLimit": "10",
+              "initSpeed": "65.0",
+              "maxSpeed": "75.0",
+              "segments": [
+                           ["{-12,20}", "{64,20}"],
+                           ["{64,20}", "{68,24}", "{68,20}"],
+                           ["{68,24}", "{68,76}"]
+                           ]
+              }, {
+              "type": "Walk",
+              "initMaxInterval": "21",
+              "initMinInterval": "15",
+              "maxIntervalLimit": "18",
+              "minIntervalLimit": "10",
+              "initSpeed": "65.0",
+              "maxSpeed": "75.0",
+              "segments": [
+                           ["{124,44}", "{-12,44}"]
+                           ]
+              }, {
+              "type": "Walk",
+              "initMaxInterval": "21",
+              "initMinInterval": "15",
+              "maxIntervalLimit": "18",
+              "minIntervalLimit": "10",
+              "initSpeed": "65.0",
+              "maxSpeed": "75.0",
+              "segments": [
+                           ["{68,77}", "{68,-12}"]
+                           ]
+              }, {
+              "type": "Walk",
+              "initMaxInterval": "21",
+              "initMinInterval": "15",
+              "maxIntervalLimit": "18",
+              "minIntervalLimit": "10",
+              "initSpeed": "65.0",
+              "maxSpeed": "75.0",
+              "segments": [
+                           ["{124,20}", "{-13,20}"]
+                           ]
+              }, {
+              "type": "CrossWalk",
+              "initMaxInterval": "15",
+              "initMinInterval": "5",
+              "maxIntervalLimit": "7",
+              "minIntervalLimit": "3",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{44,25}", "{44,39}"]
+                           ]
+              }, {
+              "type": "CrossWalk",
+              "initMaxInterval": "15",
+              "initMinInterval": "5",
+              "maxIntervalLimit": "7",
+              "minIntervalLimit": "3",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{63,44}", "{49,44}"]
+                           ]
+              }, {
+              "type": "CrossWalk",
+              "initMaxInterval": "15",
+              "initMinInterval": "5",
+              "maxIntervalLimit": "7",
+              "minIntervalLimit": "3",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{63,20}", "{49,20}"]
+                           ]
+              }, {
+              "type": "CrossWalk",
+              "initMaxInterval": "15",
+              "initMinInterval": "5",
+              "maxIntervalLimit": "7",
+              "minIntervalLimit": "3",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{68,25}", "{68,39}"]
+                           ]
+              }]
+}

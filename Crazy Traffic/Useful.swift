@@ -9,23 +9,23 @@
 import Foundation
 
 class Useful {
-    static func random(min min: Int, max: Int) -> Int {
+    static func random(min: Int, max: Int) -> Int {
         let range = UInt32(min)...UInt32(max - 1)
-        let a = range.startIndex + arc4random_uniform(range.endIndex - range.startIndex + 1)
+        let a = range.lowerBound + arc4random_uniform(range.upperBound - range.lowerBound + 1)
         return Int(a)
     }
     
     static var randomBool: Bool {
-        return random(min: 0, max: 1) == 0
+        return random(min: 0, max: 2) == 0
     }
 }
 
 extension UIColor {
     convenience init(hex: String) {
         var rgbInt: UInt64 = 0
-        let newHex = hex.stringByReplacingOccurrencesOfString("#", withString: "")
-        let scanner = NSScanner(string: newHex)
-        scanner.scanHexLongLong(&rgbInt)
+        let newHex = hex.replacingOccurrences(of: "#", with: "")
+        let scanner = Scanner(string: newHex)
+        scanner.scanHexInt64(&rgbInt)
         let r: CGFloat = CGFloat((rgbInt & 0xFF0000) >> 16)/255.0
         let g: CGFloat = CGFloat((rgbInt & 0x00FF00) >> 8)/255.0
         let b: CGFloat = CGFloat(rgbInt & 0x0000FF)/255.0

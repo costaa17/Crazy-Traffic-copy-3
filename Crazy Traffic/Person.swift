@@ -11,19 +11,21 @@ import SpriteKit
 
 class Person: PathFollower {
     
-    init(level: LevelNode, pathIndex: Int) {
-        let physicsPath = UIBezierPath(ovalInRect: CGRect(x: -12.5, y: -12.5, width: 25, height: 25))
+    init(level: LevelNode, pathIndex: Int, speed: CGFloat) {
+        let physicsPath = UIBezierPath(ovalIn: CGRect(x: -30, y: -30, width: 60, height: 60))
         let categoryBitMask = CollisionTypePerson
         let contactTestBitMask = CollisionTypeLevelBorder | CollisionTypeCar | CollisionTypePerson
         
-        super.init(level: level, pathIndex: pathIndex, speed: PERSON_SPEED, image: ImageManager.imageForPerson(), physicsPath: physicsPath, categoryBitMask: categoryBitMask, contactTestBitMask: contactTestBitMask)
+        super.init(level: level, pathIndex: pathIndex, speed: speed, image: ImageManager.imageForPerson(), physicsPath: physicsPath, categoryBitMask: categoryBitMask, contactTestBitMask: contactTestBitMask)
+        self.xScale = 0.3
+        self.yScale = 0.3
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func update(time: CFTimeInterval) {
+    override func update(_ time: CFTimeInterval) {
         super.update(time)
     }
 }

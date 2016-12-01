@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050ED4281CD561F900349EA7 /* AGSpriteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 050ED4271CD561F900349EA7 /* AGSpriteButton.m */; };
 		0519ED431CAA002B008CAB28 /* UIBezierPath+Length.m in Sources */ = {isa = PBXBuildFile; fileRef = 0519ED421CAA002B008CAB28 /* UIBezierPath+Length.m */; };
 		0519ED481CAC72C8008CAB28 /* GameOverNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0519ED471CAC72C8008CAB28 /* GameOverNode.swift */; };
 		0540FC021C99EAE200FB6927 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0540FC011C99EAE200FB6927 /* Path.swift */; };
@@ -23,14 +24,109 @@
 		0567EDF71C895E5100729F98 /* Level1.json in Resources */ = {isa = PBXBuildFile; fileRef = 0567EDF61C895E5100729F98 /* Level1.json */; };
 		0567EDF91C8A7ECA00729F98 /* LevelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0567EDF81C8A7ECA00729F98 /* LevelManager.swift */; };
 		057779A91CAEE2A20060BFE9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057779A81CAEE2A20060BFE9 /* Constants.swift */; };
+		057779F11CC889A40060BFE9 /* Level2.json in Resources */ = {isa = PBXBuildFile; fileRef = 057779F01CC889A40060BFE9 /* Level2.json */; };
+		057779F41CCC891B0060BFE9 /* Level3.json in Resources */ = {isa = PBXBuildFile; fileRef = 057779F21CCC891B0060BFE9 /* Level3.json */; };
+		057779F51CCC891B0060BFE9 /* Level4.json in Resources */ = {isa = PBXBuildFile; fileRef = 057779F31CCC891B0060BFE9 /* Level4.json */; };
+		057779F71CCC892C0060BFE9 /* Level5.json in Resources */ = {isa = PBXBuildFile; fileRef = 057779F61CCC892C0060BFE9 /* Level5.json */; };
+		057779F91CCC893B0060BFE9 /* Level6.json in Resources */ = {isa = PBXBuildFile; fileRef = 057779F81CCC893B0060BFE9 /* Level6.json */; };
+		057779FE1CCFDDE90060BFE9 /* SpriteKit-Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057779FD1CCFDDE90060BFE9 /* SpriteKit-Spring.swift */; };
+		057D86D01CE904B1002B77BB /* LANECANE.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 057D86CC1CE904B1002B77BB /* LANECANE.ttf */; };
+		057D86D11CE904B1002B77BB /* LANENAR_.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 057D86CD1CE904B1002B77BB /* LANENAR_.ttf */; };
+		057D86D21CE904B1002B77BB /* LANEPOSH.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 057D86CE1CE904B1002B77BB /* LANEPOSH.ttf */; };
+		057D86D31CE904B1002B77BB /* LANEUP__.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 057D86CF1CE904B1002B77BB /* LANEUP__.ttf */; };
 		05C7357C1CA1CC0A00B242F2 /* LevelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C7357B1CA1CC0A00B242F2 /* LevelNode.swift */; };
 		05C7357E1CA3706400B242F2 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C7357D1CA3706400B242F2 /* Car.swift */; };
+		240C5E571DD11F8300C752FE /* Level47.json in Resources */ = {isa = PBXBuildFile; fileRef = 240C5E561DD11F8300C752FE /* Level47.json */; };
+		240E0E8A1DC7049E00CA53A5 /* libGameAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 240E0E891DC7049E00CA53A5 /* libGameAnalytics.a */; };
+		2412674C1DC9B29F00830CA9 /* Garbage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2412674B1DC9B29F00830CA9 /* Garbage.swift */; };
+		24377DE21DD124E20018FAA9 /* Level49.json in Resources */ = {isa = PBXBuildFile; fileRef = 24377DE11DD124E20018FAA9 /* Level49.json */; };
+		243E40E51DD121C200C743AB /* Level48.json in Resources */ = {isa = PBXBuildFile; fileRef = 243E40E41DD121C200C743AB /* Level48.json */; };
+		244A7C9A1DD114530088AD5C /* Level44.json in Resources */ = {isa = PBXBuildFile; fileRef = 244A7C991DD114530088AD5C /* Level44.json */; };
+		244CCCCE1DB2EF1200BBD532 /* FacebookFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244CCCCD1DB2EF1200BBD532 /* FacebookFriend.swift */; };
+		244CCCD01DB3258A00BBD532 /* AskFriendsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244CCCCF1DB3258A00BBD532 /* AskFriendsNode.swift */; };
+		2451EC971DD038870045112D /* Level42.json in Resources */ = {isa = PBXBuildFile; fileRef = 2451EC961DD038870045112D /* Level42.json */; };
+		2457D6EE1D977AFA00E9AB2F /* Level31.json in Resources */ = {isa = PBXBuildFile; fileRef = 2457D6ED1D977AFA00E9AB2F /* Level31.json */; };
+		2457D6F01D98654F00E9AB2F /* Level32.json in Resources */ = {isa = PBXBuildFile; fileRef = 2457D6EF1D98654F00E9AB2F /* Level32.json */; };
+		246324541DC195E100CEBFC1 /* LivesManagementNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246324531DC195E100CEBFC1 /* LivesManagementNode.swift */; };
+		246F8DA61DD2D91200E514A8 /* Level51.json in Resources */ = {isa = PBXBuildFile; fileRef = 246F8DA51DD2D91200E514A8 /* Level51.json */; };
+		246F8DA81DD2EE6100E514A8 /* Level52.json in Resources */ = {isa = PBXBuildFile; fileRef = 246F8DA71DD2EE6100E514A8 /* Level52.json */; };
+		246F8DAA1DD3BC5600E514A8 /* Level53.json in Resources */ = {isa = PBXBuildFile; fileRef = 246F8DA91DD3BC5600E514A8 /* Level53.json */; };
+		246F8DAC1DD4DC6B00E514A8 /* Level54.json in Resources */ = {isa = PBXBuildFile; fileRef = 246F8DAB1DD4DC6B00E514A8 /* Level54.json */; };
+		246F8DAE1DD4E57D00E514A8 /* Level55.json in Resources */ = {isa = PBXBuildFile; fileRef = 246F8DAD1DD4E57D00E514A8 /* Level55.json */; };
+		246F8DB41DD9057700E514A8 /* Level56.json in Resources */ = {isa = PBXBuildFile; fileRef = 246F8DAF1DD9057700E514A8 /* Level56.json */; };
+		246F8DB51DD9057700E514A8 /* Level57.json in Resources */ = {isa = PBXBuildFile; fileRef = 246F8DB01DD9057700E514A8 /* Level57.json */; };
+		246F8DB61DD9057700E514A8 /* Level58.json in Resources */ = {isa = PBXBuildFile; fileRef = 246F8DB11DD9057700E514A8 /* Level58.json */; };
+		246F8DB71DD9057700E514A8 /* Level59.json in Resources */ = {isa = PBXBuildFile; fileRef = 246F8DB21DD9057700E514A8 /* Level59.json */; };
+		246F8DB81DD9057700E514A8 /* Level60.json in Resources */ = {isa = PBXBuildFile; fileRef = 246F8DB31DD9057700E514A8 /* Level60.json */; };
+		2475C7821D57066E00EA56B3 /* Level10.json in Resources */ = {isa = PBXBuildFile; fileRef = 2475C7811D57066E00EA56B3 /* Level10.json */; };
+		2475C7841D61178C00EA56B3 /* Level11.json in Resources */ = {isa = PBXBuildFile; fileRef = 2475C7831D61178C00EA56B3 /* Level11.json */; };
+		2475C7861D628EB900EA56B3 /* Level12.json in Resources */ = {isa = PBXBuildFile; fileRef = 2475C7851D628EB900EA56B3 /* Level12.json */; };
+		2475C7881D6298DD00EA56B3 /* Level13.json in Resources */ = {isa = PBXBuildFile; fileRef = 2475C7871D6298DD00EA56B3 /* Level13.json */; };
+		2475C78A1D62ACF500EA56B3 /* Level14.json in Resources */ = {isa = PBXBuildFile; fileRef = 2475C7891D62ACF500EA56B3 /* Level14.json */; };
+		2475C78C1D638BDC00EA56B3 /* Level15.json in Resources */ = {isa = PBXBuildFile; fileRef = 2475C78B1D638BDC00EA56B3 /* Level15.json */; };
+		2475C78E1D639C1A00EA56B3 /* Level16.json in Resources */ = {isa = PBXBuildFile; fileRef = 2475C78D1D639C1A00EA56B3 /* Level16.json */; };
+		2475C7901D63A8BF00EA56B3 /* Level17.json in Resources */ = {isa = PBXBuildFile; fileRef = 2475C78F1D63A8BF00EA56B3 /* Level17.json */; };
+		2475C7921D63B02E00EA56B3 /* Level18.json in Resources */ = {isa = PBXBuildFile; fileRef = 2475C7911D63B02E00EA56B3 /* Level18.json */; };
+		2475C7941D63E8B600EA56B3 /* Level19.json in Resources */ = {isa = PBXBuildFile; fileRef = 2475C7931D63E8B600EA56B3 /* Level19.json */; };
+		2475C7961D63EFE500EA56B3 /* Level20.json in Resources */ = {isa = PBXBuildFile; fileRef = 2475C7951D63EFE500EA56B3 /* Level20.json */; };
+		2475C7981D6CD77D00EA56B3 /* SKMultilineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2475C7971D6CD77D00EA56B3 /* SKMultilineLabel.swift */; };
+		247C9B521DD03E0200C1A34E /* Level43.json in Resources */ = {isa = PBXBuildFile; fileRef = 247C9B511DD03E0200C1A34E /* Level43.json */; };
+		247CD7431DCBFF0600166C79 /* Level41.json in Resources */ = {isa = PBXBuildFile; fileRef = 247CD7421DCBFF0600166C79 /* Level41.json */; };
+		247CECAE1DD117D000453F6A /* Level45.json in Resources */ = {isa = PBXBuildFile; fileRef = 247CECAD1DD117D000453F6A /* Level45.json */; };
+		247F73431D9F73ED00C3543F /* Level36.json in Resources */ = {isa = PBXBuildFile; fileRef = 247F73421D9F73ED00C3543F /* Level36.json */; };
+		247F73451D9F781A00C3543F /* Level37.json in Resources */ = {isa = PBXBuildFile; fileRef = 247F73441D9F781A00C3543F /* Level37.json */; };
+		247F734D1DA08F9E00C3543F /* IntroScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F734C1DA08F9E00C3543F /* IntroScene.swift */; };
+		247F73571DA095BF00C3543F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247F73541DA095BF00C3543F /* FBSDKCoreKit.framework */; };
+		247F73581DA095BF00C3543F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247F73551DA095BF00C3543F /* FBSDKLoginKit.framework */; };
+		247F73591DA095BF00C3543F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247F73561DA095BF00C3543F /* FBSDKShareKit.framework */; };
+		248607E51D6F887400C2CC19 /* carSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2475C79A1D6F849B00EA56B3 /* carSound.m4a */; };
+		248607E71D6F8AEE00C2CC19 /* slideSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 248607E61D6F8AEE00C2CC19 /* slideSound.mp3 */; };
+		248607E91D6F8C8E00C2CC19 /* buttonSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 248607E81D6F8C8E00C2CC19 /* buttonSound.mp3 */; };
+		248607EB1D6FF65200C2CC19 /* scoreSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 248607EA1D6FF65200C2CC19 /* scoreSound.mp3 */; };
+		248607ED1D6FF65D00C2CC19 /* hornSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 248607EC1D6FF65D00C2CC19 /* hornSound.mp3 */; };
+		248C7CCA1DDE437F00DB3B3E /* TrainCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C7CC91DDE437F00DB3B3E /* TrainCar.swift */; };
+		248C7CCC1DDE45D900DB3B3E /* Train.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C7CCB1DDE45D900DB3B3E /* Train.swift */; };
+		24A70A881DD29A6700E3843C /* Level50.json in Resources */ = {isa = PBXBuildFile; fileRef = 24A70A871DD29A6700E3843C /* Level50.json */; };
+		24A89E8F1DAD704C00BBB8A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24A89E8E1DAD704C00BBB8A1 /* GoogleService-Info.plist */; };
+		24BF21FE1DBFEB98003D92EF /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF21FD1DBFEB98003D92EF /* Request.swift */; };
+		24C5DEEA1DA2ACFE00673D5D /* Level38.json in Resources */ = {isa = PBXBuildFile; fileRef = 24C5DEE91DA2ACFE00673D5D /* Level38.json */; };
+		24C5DEEC1DA2C4C700673D5D /* Level39.json in Resources */ = {isa = PBXBuildFile; fileRef = 24C5DEEB1DA2C4C700673D5D /* Level39.json */; };
+		24C5DEEE1DA2CD5500673D5D /* Level40.json in Resources */ = {isa = PBXBuildFile; fileRef = 24C5DEED1DA2CD5500673D5D /* Level40.json */; };
+		24CD5CCA1D90BA04005A1AFB /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CD5CC91D90BA04005A1AFB /* Store.swift */; };
+		24CD5CCC1D90EAFD005A1AFB /* Level27.json in Resources */ = {isa = PBXBuildFile; fileRef = 24CD5CCB1D90EAFD005A1AFB /* Level27.json */; };
+		24CD5CCE1D938499005A1AFB /* Level28.json in Resources */ = {isa = PBXBuildFile; fileRef = 24CD5CCD1D938499005A1AFB /* Level28.json */; };
+		24CD5CD21D946218005A1AFB /* WinNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CD5CD11D946218005A1AFB /* WinNode.swift */; };
+		24CD5CD41D95A89D005A1AFB /* Level29.json in Resources */ = {isa = PBXBuildFile; fileRef = 24CD5CD31D95A89D005A1AFB /* Level29.json */; };
+		24CD5CD61D963A31005A1AFB /* Level30.json in Resources */ = {isa = PBXBuildFile; fileRef = 24CD5CD51D963A31005A1AFB /* Level30.json */; };
+		24D6A15E1D86372900B82D80 /* NoLifeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6A15D1D86372900B82D80 /* NoLifeNode.swift */; };
+		24D6A1601D86448500B82D80 /* blockSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D6A15F1D86448500B82D80 /* blockSound.mp3 */; };
+		24D6A1621D86457600B82D80 /* blockSound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D6A1611D86457600B82D80 /* blockSound2.mp3 */; };
+		24D6A1641D879F1200B82D80 /* Level21.json in Resources */ = {isa = PBXBuildFile; fileRef = 24D6A1631D879F1200B82D80 /* Level21.json */; };
+		24D6A1661D879F4200B82D80 /* Level22.json in Resources */ = {isa = PBXBuildFile; fileRef = 24D6A1651D879F4200B82D80 /* Level22.json */; };
+		24D6A1681D87A8A200B82D80 /* Level23.json in Resources */ = {isa = PBXBuildFile; fileRef = 24D6A1671D87A8A200B82D80 /* Level23.json */; };
+		24D6A16A1D87BA9900B82D80 /* Level24.json in Resources */ = {isa = PBXBuildFile; fileRef = 24D6A1691D87BA9900B82D80 /* Level24.json */; };
+		24D6A16C1D888B6900B82D80 /* EpisodeHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D6A16B1D888B6900B82D80 /* EpisodeHelp.swift */; };
+		24D6A16E1D8A59DD00B82D80 /* Level25.json in Resources */ = {isa = PBXBuildFile; fileRef = 24D6A16D1D8A59DD00B82D80 /* Level25.json */; };
+		24D6A1701D8A5B2F00B82D80 /* Level26.json in Resources */ = {isa = PBXBuildFile; fileRef = 24D6A16F1D8A5B2F00B82D80 /* Level26.json */; };
+		24D6A1721D8B2BB300B82D80 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D6A1711D8B2BB300B82D80 /* StoreKit.framework */; };
+		24E1EF161D9B6BB6000E8BEA /* Level33.json in Resources */ = {isa = PBXBuildFile; fileRef = 24E1EF151D9B6BB6000E8BEA /* Level33.json */; };
+		24E1EF181D9B8B36000E8BEA /* Level34.json in Resources */ = {isa = PBXBuildFile; fileRef = 24E1EF171D9B8B36000E8BEA /* Level34.json */; };
+		24E1EF1A1D9B95C5000E8BEA /* Level35.json in Resources */ = {isa = PBXBuildFile; fileRef = 24E1EF191D9B95C5000E8BEA /* Level35.json */; };
+		24E6921F1D3AFE6500B7DDA6 /* Level7.json in Resources */ = {isa = PBXBuildFile; fileRef = 24E6921E1D3AFE6500B7DDA6 /* Level7.json */; };
+		24E692211D4197CD00B7DDA6 /* Level8.json in Resources */ = {isa = PBXBuildFile; fileRef = 24E692201D4197CD00B7DDA6 /* Level8.json */; };
+		24E692231D5056B800B7DDA6 /* Level9.json in Resources */ = {isa = PBXBuildFile; fileRef = 24E692221D5056B800B7DDA6 /* Level9.json */; };
+		24E701421D7613AC009CBDE3 /* ASAttributedLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E701411D7613AC009CBDE3 /* ASAttributedLabelNode.swift */; };
 		24E968581CB70F510042FB79 /* Useful.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E968571CB70F510042FB79 /* Useful.swift */; };
 		24E968601CC58C1E0042FB79 /* PathFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E9685F1CC58C1E0042FB79 /* PathFollower.swift */; };
 		24E968621CC58C340042FB79 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E968611CC58C340042FB79 /* Person.swift */; };
+		24EBBCF11DD11C42001B5393 /* Level46.json in Resources */ = {isa = PBXBuildFile; fileRef = 24EBBCF01DD11C42001B5393 /* Level46.json */; };
+		E0B7EC1D4212ED78442FE5CC /* Pods_Crazy_Traffic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62F3744E15B824FE5B3F56CA /* Pods_Crazy_Traffic.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0278D6F0D72763D704FA0FC6 /* Pods-Crazy Traffic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crazy Traffic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crazy Traffic/Pods-Crazy Traffic.release.xcconfig"; sourceTree = "<group>"; };
+		050ED4261CD561F900349EA7 /* AGSpriteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGSpriteButton.h; sourceTree = "<group>"; };
+		050ED4271CD561F900349EA7 /* AGSpriteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGSpriteButton.m; sourceTree = "<group>"; };
 		0519ED401CAA002A008CAB28 /* Crazy Traffic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crazy Traffic-Bridging-Header.h"; sourceTree = "<group>"; };
 		0519ED411CAA002B008CAB28 /* UIBezierPath+Length.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+Length.h"; sourceTree = "<group>"; };
 		0519ED421CAA002B008CAB28 /* UIBezierPath+Length.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+Length.m"; sourceTree = "<group>"; };
@@ -51,11 +147,110 @@
 		0567EDF61C895E5100729F98 /* Level1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level1.json; sourceTree = "<group>"; };
 		0567EDF81C8A7ECA00729F98 /* LevelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelManager.swift; sourceTree = "<group>"; };
 		057779A81CAEE2A20060BFE9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		057779F01CC889A40060BFE9 /* Level2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level2.json; sourceTree = "<group>"; };
+		057779F21CCC891B0060BFE9 /* Level3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level3.json; sourceTree = "<group>"; };
+		057779F31CCC891B0060BFE9 /* Level4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level4.json; sourceTree = "<group>"; };
+		057779F61CCC892C0060BFE9 /* Level5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level5.json; sourceTree = "<group>"; };
+		057779F81CCC893B0060BFE9 /* Level6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level6.json; sourceTree = "<group>"; };
+		057779FD1CCFDDE90060BFE9 /* SpriteKit-Spring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpriteKit-Spring.swift"; sourceTree = "<group>"; };
+		057D86CC1CE904B1002B77BB /* LANECANE.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LANECANE.ttf; sourceTree = "<group>"; };
+		057D86CD1CE904B1002B77BB /* LANENAR_.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LANENAR_.ttf; sourceTree = "<group>"; };
+		057D86CE1CE904B1002B77BB /* LANEPOSH.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LANEPOSH.ttf; sourceTree = "<group>"; };
+		057D86CF1CE904B1002B77BB /* LANEUP__.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LANEUP__.ttf; sourceTree = "<group>"; };
 		05C7357B1CA1CC0A00B242F2 /* LevelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelNode.swift; sourceTree = "<group>"; };
 		05C7357D1CA3706400B242F2 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		240C5E561DD11F8300C752FE /* Level47.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level47.json; sourceTree = "<group>"; };
+		240E0E881DC7049E00CA53A5 /* GameAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAnalytics.h; sourceTree = "<group>"; };
+		240E0E891DC7049E00CA53A5 /* libGameAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGameAnalytics.a; sourceTree = "<group>"; };
+		2412674B1DC9B29F00830CA9 /* Garbage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Garbage.swift; sourceTree = "<group>"; };
+		24377DE11DD124E20018FAA9 /* Level49.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level49.json; sourceTree = "<group>"; };
+		243E40E41DD121C200C743AB /* Level48.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level48.json; sourceTree = "<group>"; };
+		244A7C991DD114530088AD5C /* Level44.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level44.json; sourceTree = "<group>"; };
+		244CCCCD1DB2EF1200BBD532 /* FacebookFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFriend.swift; sourceTree = "<group>"; };
+		244CCCCF1DB3258A00BBD532 /* AskFriendsNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskFriendsNode.swift; sourceTree = "<group>"; };
+		2451EC961DD038870045112D /* Level42.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level42.json; sourceTree = "<group>"; };
+		2457D6ED1D977AFA00E9AB2F /* Level31.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level31.json; sourceTree = "<group>"; };
+		2457D6EF1D98654F00E9AB2F /* Level32.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level32.json; sourceTree = "<group>"; };
+		246324531DC195E100CEBFC1 /* LivesManagementNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivesManagementNode.swift; sourceTree = "<group>"; };
+		246F8DA51DD2D91200E514A8 /* Level51.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level51.json; sourceTree = "<group>"; };
+		246F8DA71DD2EE6100E514A8 /* Level52.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level52.json; sourceTree = "<group>"; };
+		246F8DA91DD3BC5600E514A8 /* Level53.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level53.json; sourceTree = "<group>"; };
+		246F8DAB1DD4DC6B00E514A8 /* Level54.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level54.json; sourceTree = "<group>"; };
+		246F8DAD1DD4E57D00E514A8 /* Level55.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level55.json; sourceTree = "<group>"; };
+		246F8DAF1DD9057700E514A8 /* Level56.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level56.json; sourceTree = "<group>"; };
+		246F8DB01DD9057700E514A8 /* Level57.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level57.json; sourceTree = "<group>"; };
+		246F8DB11DD9057700E514A8 /* Level58.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level58.json; sourceTree = "<group>"; };
+		246F8DB21DD9057700E514A8 /* Level59.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level59.json; sourceTree = "<group>"; };
+		246F8DB31DD9057700E514A8 /* Level60.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level60.json; sourceTree = "<group>"; };
+		2475C7811D57066E00EA56B3 /* Level10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level10.json; sourceTree = "<group>"; };
+		2475C7831D61178C00EA56B3 /* Level11.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level11.json; sourceTree = "<group>"; };
+		2475C7851D628EB900EA56B3 /* Level12.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level12.json; sourceTree = "<group>"; };
+		2475C7871D6298DD00EA56B3 /* Level13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level13.json; sourceTree = "<group>"; };
+		2475C7891D62ACF500EA56B3 /* Level14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level14.json; sourceTree = "<group>"; };
+		2475C78B1D638BDC00EA56B3 /* Level15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level15.json; sourceTree = "<group>"; };
+		2475C78D1D639C1A00EA56B3 /* Level16.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level16.json; sourceTree = "<group>"; };
+		2475C78F1D63A8BF00EA56B3 /* Level17.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level17.json; sourceTree = "<group>"; };
+		2475C7911D63B02E00EA56B3 /* Level18.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level18.json; sourceTree = "<group>"; };
+		2475C7931D63E8B600EA56B3 /* Level19.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level19.json; sourceTree = "<group>"; };
+		2475C7951D63EFE500EA56B3 /* Level20.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level20.json; sourceTree = "<group>"; };
+		2475C7971D6CD77D00EA56B3 /* SKMultilineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMultilineLabel.swift; sourceTree = "<group>"; };
+		2475C79A1D6F849B00EA56B3 /* carSound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = carSound.m4a; sourceTree = "<group>"; };
+		247C9B511DD03E0200C1A34E /* Level43.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level43.json; sourceTree = "<group>"; };
+		247CD7421DCBFF0600166C79 /* Level41.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level41.json; sourceTree = "<group>"; };
+		247CECAD1DD117D000453F6A /* Level45.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level45.json; sourceTree = "<group>"; };
+		247F73421D9F73ED00C3543F /* Level36.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level36.json; sourceTree = "<group>"; };
+		247F73441D9F781A00C3543F /* Level37.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level37.json; sourceTree = "<group>"; };
+		247F734C1DA08F9E00C3543F /* IntroScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroScene.swift; sourceTree = "<group>"; };
+		247F73541DA095BF00C3543F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		247F73551DA095BF00C3543F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		247F73561DA095BF00C3543F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		248607E61D6F8AEE00C2CC19 /* slideSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = slideSound.mp3; sourceTree = "<group>"; };
+		248607E81D6F8C8E00C2CC19 /* buttonSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonSound.mp3; sourceTree = "<group>"; };
+		248607EA1D6FF65200C2CC19 /* scoreSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scoreSound.mp3; sourceTree = "<group>"; };
+		248607EC1D6FF65D00C2CC19 /* hornSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hornSound.mp3; sourceTree = "<group>"; };
+		248C7CC91DDE437F00DB3B3E /* TrainCar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainCar.swift; sourceTree = "<group>"; };
+		248C7CCB1DDE45D900DB3B3E /* Train.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Train.swift; sourceTree = "<group>"; };
+		24A70A871DD29A6700E3843C /* Level50.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level50.json; sourceTree = "<group>"; };
+		24A89E8E1DAD704C00BBB8A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		24BF21FD1DBFEB98003D92EF /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		24C5DEE91DA2ACFE00673D5D /* Level38.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level38.json; sourceTree = "<group>"; };
+		24C5DEEB1DA2C4C700673D5D /* Level39.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level39.json; sourceTree = "<group>"; };
+		24C5DEED1DA2CD5500673D5D /* Level40.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level40.json; sourceTree = "<group>"; };
+		24CD5CC91D90BA04005A1AFB /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		24CD5CCB1D90EAFD005A1AFB /* Level27.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level27.json; sourceTree = "<group>"; };
+		24CD5CCD1D938499005A1AFB /* Level28.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level28.json; sourceTree = "<group>"; };
+		24CD5CD11D946218005A1AFB /* WinNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinNode.swift; sourceTree = "<group>"; };
+		24CD5CD31D95A89D005A1AFB /* Level29.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level29.json; sourceTree = "<group>"; };
+		24CD5CD51D963A31005A1AFB /* Level30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level30.json; sourceTree = "<group>"; };
+		24D6A15D1D86372900B82D80 /* NoLifeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoLifeNode.swift; sourceTree = "<group>"; };
+		24D6A15F1D86448500B82D80 /* blockSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = blockSound.mp3; sourceTree = "<group>"; };
+		24D6A1611D86457600B82D80 /* blockSound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = blockSound2.mp3; sourceTree = "<group>"; };
+		24D6A1631D879F1200B82D80 /* Level21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level21.json; sourceTree = "<group>"; };
+		24D6A1651D879F4200B82D80 /* Level22.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level22.json; sourceTree = "<group>"; };
+		24D6A1671D87A8A200B82D80 /* Level23.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level23.json; sourceTree = "<group>"; };
+		24D6A1691D87BA9900B82D80 /* Level24.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level24.json; sourceTree = "<group>"; };
+		24D6A16B1D888B6900B82D80 /* EpisodeHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeHelp.swift; sourceTree = "<group>"; };
+		24D6A16D1D8A59DD00B82D80 /* Level25.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level25.json; sourceTree = "<group>"; };
+		24D6A16F1D8A5B2F00B82D80 /* Level26.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level26.json; sourceTree = "<group>"; };
+		24D6A1711D8B2BB300B82D80 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		24E1EF151D9B6BB6000E8BEA /* Level33.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level33.json; sourceTree = "<group>"; };
+		24E1EF171D9B8B36000E8BEA /* Level34.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level34.json; sourceTree = "<group>"; };
+		24E1EF191D9B95C5000E8BEA /* Level35.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level35.json; sourceTree = "<group>"; };
+		24E1FC3B1DC7007B00CABFFB /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		24E1FC3D1DC7008600CABFFB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		24E1FC3F1DC7009000CABFFB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		24E1FC411DC7009800CABFFB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		24E1FC431DC700AF00CABFFB /* libGameAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGameAnalytics.a; path = "../../../Downloads/GA-SDK-IOS-master/Library/libGameAnalytics.a"; sourceTree = "<group>"; };
+		24E6921E1D3AFE6500B7DDA6 /* Level7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level7.json; sourceTree = "<group>"; };
+		24E692201D4197CD00B7DDA6 /* Level8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level8.json; sourceTree = "<group>"; };
+		24E692221D5056B800B7DDA6 /* Level9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level9.json; sourceTree = "<group>"; };
+		24E701411D7613AC009CBDE3 /* ASAttributedLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASAttributedLabelNode.swift; sourceTree = "<group>"; };
 		24E968571CB70F510042FB79 /* Useful.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Useful.swift; sourceTree = "<group>"; };
 		24E9685F1CC58C1E0042FB79 /* PathFollower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathFollower.swift; sourceTree = "<group>"; };
 		24E968611CC58C340042FB79 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		24EBBCF01DD11C42001B5393 /* Level46.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level46.json; sourceTree = "<group>"; };
+		4C70EDD30FDC6B831EABE023 /* Pods-Crazy Traffic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crazy Traffic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crazy Traffic/Pods-Crazy Traffic.debug.xcconfig"; sourceTree = "<group>"; };
+		62F3744E15B824FE5B3F56CA /* Pods_Crazy_Traffic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crazy_Traffic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,12 +258,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				240E0E8A1DC7049E00CA53A5 /* libGameAnalytics.a in Frameworks */,
+				24D6A1721D8B2BB300B82D80 /* StoreKit.framework in Frameworks */,
+				247F73571DA095BF00C3543F /* FBSDKCoreKit.framework in Frameworks */,
+				247F73591DA095BF00C3543F /* FBSDKShareKit.framework in Frameworks */,
+				247F73581DA095BF00C3543F /* FBSDKLoginKit.framework in Frameworks */,
+				E0B7EC1D4212ED78442FE5CC /* Pods_Crazy_Traffic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		050ED4291CD5820300349EA7 /* AGSpriteButton */ = {
+			isa = PBXGroup;
+			children = (
+				050ED4261CD561F900349EA7 /* AGSpriteButton.h */,
+				050ED4271CD561F900349EA7 /* AGSpriteButton.m */,
+			);
+			name = AGSpriteButton;
+			sourceTree = "<group>";
+		};
+		050ED42A1CD5822300349EA7 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				057779FD1CCFDDE90060BFE9 /* SpriteKit-Spring.swift */,
+				057D86D41CEA18B6002B77BB /* Font */,
+				050ED4291CD5820300349EA7 /* AGSpriteButton */,
+				2475C7971D6CD77D00EA56B3 /* SKMultilineLabel.swift */,
+				24E701411D7613AC009CBDE3 /* ASAttributedLabelNode.swift */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
 		0540FC031C99EAE800FB6927 /* Paths */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,7 +299,6 @@
 				0540FC061C99EB0900FB6927 /* PathVertex.swift */,
 				0519ED411CAA002B008CAB28 /* UIBezierPath+Length.h */,
 				0519ED421CAA002B008CAB28 /* UIBezierPath+Length.m */,
-				0519ED401CAA002A008CAB28 /* Crazy Traffic-Bridging-Header.h */,
 			);
 			name = Paths;
 			sourceTree = "<group>";
@@ -87,6 +308,8 @@
 			children = (
 				0567EDD61C890C6A00729F98 /* Crazy Traffic */,
 				0567EDD51C890C6A00729F98 /* Products */,
+				313C6B317451F24E48D87068 /* Pods */,
+				57B0FF417EA7397456CFAC42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,20 +327,43 @@
 				0567EDD71C890C6A00729F98 /* AppDelegate.swift */,
 				057779A81CAEE2A20060BFE9 /* Constants.swift */,
 				0567EDDD1C890C6A00729F98 /* GameViewController.swift */,
-				0567EDD91C890C6A00729F98 /* GameScene.sks */,
 				0567EDDB1C890C6A00729F98 /* GameScene.swift */,
 				0567EDF81C8A7ECA00729F98 /* LevelManager.swift */,
 				0567EDED1C89189100729F98 /* ImageManager.swift */,
 				05C7357B1CA1CC0A00B242F2 /* LevelNode.swift */,
 				0519ED471CAC72C8008CAB28 /* GameOverNode.swift */,
+				24D6A15D1D86372900B82D80 /* NoLifeNode.swift */,
+				24D6A16B1D888B6900B82D80 /* EpisodeHelp.swift */,
 				24E968571CB70F510042FB79 /* Useful.swift */,
+				24CD5CC91D90BA04005A1AFB /* Store.swift */,
+				24CD5CD11D946218005A1AFB /* WinNode.swift */,
+				247F734C1DA08F9E00C3543F /* IntroScene.swift */,
+				244CCCCD1DB2EF1200BBD532 /* FacebookFriend.swift */,
+				244CCCCF1DB3258A00BBD532 /* AskFriendsNode.swift */,
+				24BF21FD1DBFEB98003D92EF /* Request.swift */,
+				246324531DC195E100CEBFC1 /* LivesManagementNode.swift */,
+				248C7CCB1DDE45D900DB3B3E /* Train.swift */,
+				2475C79A1D6F849B00EA56B3 /* carSound.m4a */,
+				248607E61D6F8AEE00C2CC19 /* slideSound.mp3 */,
+				248607E81D6F8C8E00C2CC19 /* buttonSound.mp3 */,
+				248607EA1D6FF65200C2CC19 /* scoreSound.mp3 */,
+				248607EC1D6FF65D00C2CC19 /* hornSound.mp3 */,
+				24D6A15F1D86448500B82D80 /* blockSound.mp3 */,
+				24D6A1611D86457600B82D80 /* blockSound2.mp3 */,
+				0567EDD91C890C6A00729F98 /* GameScene.sks */,
+				240E0E881DC7049E00CA53A5 /* GameAnalytics.h */,
+				240E0E891DC7049E00CA53A5 /* libGameAnalytics.a */,
+				2475C7991D6F847E00EA56B3 /* sound */,
+				0567EDF51C895E4400729F98 /* Levels */,
+				050ED42A1CD5822300349EA7 /* External */,
 				24E9685E1CC58BF70042FB79 /* Path Followers */,
 				0540FC031C99EAE800FB6927 /* Paths */,
-				0567EDF51C895E4400729F98 /* Levels */,
+				0519ED401CAA002A008CAB28 /* Crazy Traffic-Bridging-Header.h */,
 				0567EDDF1C890C6A00729F98 /* Main.storyboard */,
 				0567EDE21C890C6A00729F98 /* Assets.xcassets */,
 				0567EDE41C890C6A00729F98 /* LaunchScreen.storyboard */,
 				0567EDE71C890C6A00729F98 /* Info.plist */,
+				24A89E8E1DAD704C00BBB8A1 /* GoogleService-Info.plist */,
 			);
 			path = "Crazy Traffic";
 			sourceTree = "<group>";
@@ -126,8 +372,85 @@
 			isa = PBXGroup;
 			children = (
 				0567EDF61C895E5100729F98 /* Level1.json */,
+				057779F01CC889A40060BFE9 /* Level2.json */,
+				057779F21CCC891B0060BFE9 /* Level3.json */,
+				057779F31CCC891B0060BFE9 /* Level4.json */,
+				057779F61CCC892C0060BFE9 /* Level5.json */,
+				057779F81CCC893B0060BFE9 /* Level6.json */,
+				24E6921E1D3AFE6500B7DDA6 /* Level7.json */,
+				24E692201D4197CD00B7DDA6 /* Level8.json */,
+				24E692221D5056B800B7DDA6 /* Level9.json */,
+				2475C7811D57066E00EA56B3 /* Level10.json */,
+				2475C7831D61178C00EA56B3 /* Level11.json */,
+				2475C7851D628EB900EA56B3 /* Level12.json */,
+				2475C7871D6298DD00EA56B3 /* Level13.json */,
+				2475C7891D62ACF500EA56B3 /* Level14.json */,
+				2475C78B1D638BDC00EA56B3 /* Level15.json */,
+				2475C78D1D639C1A00EA56B3 /* Level16.json */,
+				2475C78F1D63A8BF00EA56B3 /* Level17.json */,
+				2475C7911D63B02E00EA56B3 /* Level18.json */,
+				2475C7931D63E8B600EA56B3 /* Level19.json */,
+				2475C7951D63EFE500EA56B3 /* Level20.json */,
+				24D6A1631D879F1200B82D80 /* Level21.json */,
+				24D6A1651D879F4200B82D80 /* Level22.json */,
+				24D6A1671D87A8A200B82D80 /* Level23.json */,
+				24D6A1691D87BA9900B82D80 /* Level24.json */,
+				24D6A16D1D8A59DD00B82D80 /* Level25.json */,
+				24D6A16F1D8A5B2F00B82D80 /* Level26.json */,
+				24CD5CCB1D90EAFD005A1AFB /* Level27.json */,
+				24CD5CCD1D938499005A1AFB /* Level28.json */,
+				24CD5CD31D95A89D005A1AFB /* Level29.json */,
+				24CD5CD51D963A31005A1AFB /* Level30.json */,
+				2457D6ED1D977AFA00E9AB2F /* Level31.json */,
+				2457D6EF1D98654F00E9AB2F /* Level32.json */,
+				24E1EF151D9B6BB6000E8BEA /* Level33.json */,
+				24E1EF171D9B8B36000E8BEA /* Level34.json */,
+				24E1EF191D9B95C5000E8BEA /* Level35.json */,
+				247F73421D9F73ED00C3543F /* Level36.json */,
+				247F73441D9F781A00C3543F /* Level37.json */,
+				24C5DEE91DA2ACFE00673D5D /* Level38.json */,
+				24C5DEEB1DA2C4C700673D5D /* Level39.json */,
+				24C5DEED1DA2CD5500673D5D /* Level40.json */,
+				247CD7421DCBFF0600166C79 /* Level41.json */,
+				2451EC961DD038870045112D /* Level42.json */,
+				247C9B511DD03E0200C1A34E /* Level43.json */,
+				244A7C991DD114530088AD5C /* Level44.json */,
+				247CECAD1DD117D000453F6A /* Level45.json */,
+				24EBBCF01DD11C42001B5393 /* Level46.json */,
+				240C5E561DD11F8300C752FE /* Level47.json */,
+				243E40E41DD121C200C743AB /* Level48.json */,
+				24377DE11DD124E20018FAA9 /* Level49.json */,
+				24A70A871DD29A6700E3843C /* Level50.json */,
+				246F8DA51DD2D91200E514A8 /* Level51.json */,
+				246F8DA71DD2EE6100E514A8 /* Level52.json */,
+				246F8DA91DD3BC5600E514A8 /* Level53.json */,
+				246F8DAB1DD4DC6B00E514A8 /* Level54.json */,
+				246F8DAD1DD4E57D00E514A8 /* Level55.json */,
+				246F8DAF1DD9057700E514A8 /* Level56.json */,
+				246F8DB01DD9057700E514A8 /* Level57.json */,
+				246F8DB11DD9057700E514A8 /* Level58.json */,
+				246F8DB21DD9057700E514A8 /* Level59.json */,
+				246F8DB31DD9057700E514A8 /* Level60.json */,
 			);
 			name = Levels;
+			sourceTree = "<group>";
+		};
+		057D86D41CEA18B6002B77BB /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				057D86CC1CE904B1002B77BB /* LANECANE.ttf */,
+				057D86CD1CE904B1002B77BB /* LANENAR_.ttf */,
+				057D86CE1CE904B1002B77BB /* LANEPOSH.ttf */,
+				057D86CF1CE904B1002B77BB /* LANEUP__.ttf */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
+		2475C7991D6F847E00EA56B3 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = sound;
 			sourceTree = "<group>";
 		};
 		24E9685E1CC58BF70042FB79 /* Path Followers */ = {
@@ -136,8 +459,36 @@
 				24E9685F1CC58C1E0042FB79 /* PathFollower.swift */,
 				05C7357D1CA3706400B242F2 /* Car.swift */,
 				24E968611CC58C340042FB79 /* Person.swift */,
+				2412674B1DC9B29F00830CA9 /* Garbage.swift */,
+				248C7CC91DDE437F00DB3B3E /* TrainCar.swift */,
 			);
 			name = "Path Followers";
+			sourceTree = "<group>";
+		};
+		313C6B317451F24E48D87068 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C70EDD30FDC6B831EABE023 /* Pods-Crazy Traffic.debug.xcconfig */,
+				0278D6F0D72763D704FA0FC6 /* Pods-Crazy Traffic.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		57B0FF417EA7397456CFAC42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24E1FC431DC700AF00CABFFB /* libGameAnalytics.a */,
+				24E1FC411DC7009800CABFFB /* libz.tbd */,
+				24E1FC3F1DC7009000CABFFB /* libsqlite3.tbd */,
+				24E1FC3D1DC7008600CABFFB /* SystemConfiguration.framework */,
+				24E1FC3B1DC7007B00CABFFB /* AdSupport.framework */,
+				247F73541DA095BF00C3543F /* FBSDKCoreKit.framework */,
+				247F73551DA095BF00C3543F /* FBSDKLoginKit.framework */,
+				247F73561DA095BF00C3543F /* FBSDKShareKit.framework */,
+				24D6A1711D8B2BB300B82D80 /* StoreKit.framework */,
+				62F3744E15B824FE5B3F56CA /* Pods_Crazy_Traffic.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,9 +498,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0567EDEA1C890C6A00729F98 /* Build configuration list for PBXNativeTarget "Crazy Traffic" */;
 			buildPhases = (
+				AA8D33959740F554F9FB3978 /* [CP] Check Pods Manifest.lock */,
 				0567EDD01C890C6A00729F98 /* Sources */,
 				0567EDD11C890C6A00729F98 /* Frameworks */,
 				0567EDD21C890C6A00729F98 /* Resources */,
+				A50B401D12CA727D6108A994 /* [CP] Embed Pods Frameworks */,
+				D239F83A1A9650E536066FB6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,6 +526,13 @@
 				TargetAttributes = {
 					0567EDD31C890C6A00729F98 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 537E9MH96M;
+						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -198,35 +559,170 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				248607E51D6F887400C2CC19 /* carSound.m4a in Resources */,
+				240C5E571DD11F8300C752FE /* Level47.json in Resources */,
+				247CD7431DCBFF0600166C79 /* Level41.json in Resources */,
+				2457D6F01D98654F00E9AB2F /* Level32.json in Resources */,
+				24CD5CD41D95A89D005A1AFB /* Level29.json in Resources */,
+				248607ED1D6FF65D00C2CC19 /* hornSound.mp3 in Resources */,
+				057D86D11CE904B1002B77BB /* LANENAR_.ttf in Resources */,
+				246F8DAA1DD3BC5600E514A8 /* Level53.json in Resources */,
+				246F8DB51DD9057700E514A8 /* Level57.json in Resources */,
+				2475C78C1D638BDC00EA56B3 /* Level15.json in Resources */,
+				24D6A1701D8A5B2F00B82D80 /* Level26.json in Resources */,
+				2451EC971DD038870045112D /* Level42.json in Resources */,
+				2475C7841D61178C00EA56B3 /* Level11.json in Resources */,
+				24C5DEEE1DA2CD5500673D5D /* Level40.json in Resources */,
+				2475C7821D57066E00EA56B3 /* Level10.json in Resources */,
+				057D86D31CE904B1002B77BB /* LANEUP__.ttf in Resources */,
+				246F8DB71DD9057700E514A8 /* Level59.json in Resources */,
+				057779F71CCC892C0060BFE9 /* Level5.json in Resources */,
+				24E1EF181D9B8B36000E8BEA /* Level34.json in Resources */,
+				24E692211D4197CD00B7DDA6 /* Level8.json in Resources */,
+				244A7C9A1DD114530088AD5C /* Level44.json in Resources */,
+				24E1EF1A1D9B95C5000E8BEA /* Level35.json in Resources */,
+				246F8DB61DD9057700E514A8 /* Level58.json in Resources */,
+				057779F41CCC891B0060BFE9 /* Level3.json in Resources */,
 				0567EDDA1C890C6A00729F98 /* GameScene.sks in Resources */,
+				24377DE21DD124E20018FAA9 /* Level49.json in Resources */,
+				24D6A1601D86448500B82D80 /* blockSound.mp3 in Resources */,
+				24E692231D5056B800B7DDA6 /* Level9.json in Resources */,
+				24CD5CCE1D938499005A1AFB /* Level28.json in Resources */,
+				243E40E51DD121C200C743AB /* Level48.json in Resources */,
+				2475C7941D63E8B600EA56B3 /* Level19.json in Resources */,
+				24CD5CCC1D90EAFD005A1AFB /* Level27.json in Resources */,
+				247F73431D9F73ED00C3543F /* Level36.json in Resources */,
+				2475C78A1D62ACF500EA56B3 /* Level14.json in Resources */,
+				246F8DAC1DD4DC6B00E514A8 /* Level54.json in Resources */,
+				247CECAE1DD117D000453F6A /* Level45.json in Resources */,
+				057779F91CCC893B0060BFE9 /* Level6.json in Resources */,
+				2475C7881D6298DD00EA56B3 /* Level13.json in Resources */,
+				24E6921F1D3AFE6500B7DDA6 /* Level7.json in Resources */,
+				248607E71D6F8AEE00C2CC19 /* slideSound.mp3 in Resources */,
+				24D6A1621D86457600B82D80 /* blockSound2.mp3 in Resources */,
+				24D6A1661D879F4200B82D80 /* Level22.json in Resources */,
+				24D6A16E1D8A59DD00B82D80 /* Level25.json in Resources */,
+				2457D6EE1D977AFA00E9AB2F /* Level31.json in Resources */,
+				248607EB1D6FF65200C2CC19 /* scoreSound.mp3 in Resources */,
+				2475C7861D628EB900EA56B3 /* Level12.json in Resources */,
+				24EBBCF11DD11C42001B5393 /* Level46.json in Resources */,
 				0567EDF71C895E5100729F98 /* Level1.json in Resources */,
+				247F73451D9F781A00C3543F /* Level37.json in Resources */,
+				248607E91D6F8C8E00C2CC19 /* buttonSound.mp3 in Resources */,
+				2475C7901D63A8BF00EA56B3 /* Level17.json in Resources */,
+				24C5DEEA1DA2ACFE00673D5D /* Level38.json in Resources */,
+				246F8DA81DD2EE6100E514A8 /* Level52.json in Resources */,
+				246F8DA61DD2D91200E514A8 /* Level51.json in Resources */,
+				24D6A16A1D87BA9900B82D80 /* Level24.json in Resources */,
+				24E1EF161D9B6BB6000E8BEA /* Level33.json in Resources */,
 				0567EDE61C890C6A00729F98 /* LaunchScreen.storyboard in Resources */,
+				24D6A1641D879F1200B82D80 /* Level21.json in Resources */,
+				246F8DB81DD9057700E514A8 /* Level60.json in Resources */,
+				246F8DB41DD9057700E514A8 /* Level56.json in Resources */,
+				057779F11CC889A40060BFE9 /* Level2.json in Resources */,
 				0567EDE31C890C6A00729F98 /* Assets.xcassets in Resources */,
+				247C9B521DD03E0200C1A34E /* Level43.json in Resources */,
+				2475C78E1D639C1A00EA56B3 /* Level16.json in Resources */,
+				24A70A881DD29A6700E3843C /* Level50.json in Resources */,
 				0567EDE11C890C6A00729F98 /* Main.storyboard in Resources */,
+				24C5DEEC1DA2C4C700673D5D /* Level39.json in Resources */,
+				057D86D21CE904B1002B77BB /* LANEPOSH.ttf in Resources */,
+				24D6A1681D87A8A200B82D80 /* Level23.json in Resources */,
+				2475C7921D63B02E00EA56B3 /* Level18.json in Resources */,
+				057D86D01CE904B1002B77BB /* LANECANE.ttf in Resources */,
+				2475C7961D63EFE500EA56B3 /* Level20.json in Resources */,
+				057779F51CCC891B0060BFE9 /* Level4.json in Resources */,
+				246F8DAE1DD4E57D00E514A8 /* Level55.json in Resources */,
+				24CD5CD61D963A31005A1AFB /* Level30.json in Resources */,
+				24A89E8F1DAD704C00BBB8A1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A50B401D12CA727D6108A994 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crazy Traffic/Pods-Crazy Traffic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA8D33959740F554F9FB3978 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D239F83A1A9650E536066FB6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crazy Traffic/Pods-Crazy Traffic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0567EDD01C890C6A00729F98 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2475C7981D6CD77D00EA56B3 /* SKMultilineLabel.swift in Sources */,
+				24E701421D7613AC009CBDE3 /* ASAttributedLabelNode.swift in Sources */,
+				24D6A15E1D86372900B82D80 /* NoLifeNode.swift in Sources */,
 				0540FC071C99EB0900FB6927 /* PathVertex.swift in Sources */,
+				248C7CCC1DDE45D900DB3B3E /* Train.swift in Sources */,
 				05C7357C1CA1CC0A00B242F2 /* LevelNode.swift in Sources */,
+				247F734D1DA08F9E00C3543F /* IntroScene.swift in Sources */,
+				244CCCD01DB3258A00BBD532 /* AskFriendsNode.swift in Sources */,
+				24CD5CCA1D90BA04005A1AFB /* Store.swift in Sources */,
+				244CCCCE1DB2EF1200BBD532 /* FacebookFriend.swift in Sources */,
 				05C7357E1CA3706400B242F2 /* Car.swift in Sources */,
 				24E968601CC58C1E0042FB79 /* PathFollower.swift in Sources */,
+				050ED4281CD561F900349EA7 /* AGSpriteButton.m in Sources */,
 				0567EDDC1C890C6A00729F98 /* GameScene.swift in Sources */,
+				248C7CCA1DDE437F00DB3B3E /* TrainCar.swift in Sources */,
 				057779A91CAEE2A20060BFE9 /* Constants.swift in Sources */,
+				24D6A16C1D888B6900B82D80 /* EpisodeHelp.swift in Sources */,
 				0540FC021C99EAE200FB6927 /* Path.swift in Sources */,
 				0519ED431CAA002B008CAB28 /* UIBezierPath+Length.m in Sources */,
 				0567EDDE1C890C6A00729F98 /* GameViewController.swift in Sources */,
+				057779FE1CCFDDE90060BFE9 /* SpriteKit-Spring.swift in Sources */,
 				0519ED481CAC72C8008CAB28 /* GameOverNode.swift in Sources */,
 				24E968581CB70F510042FB79 /* Useful.swift in Sources */,
 				0567EDF91C8A7ECA00729F98 /* LevelManager.swift in Sources */,
 				0567EDD81C890C6A00729F98 /* AppDelegate.swift in Sources */,
+				246324541DC195E100CEBFC1 /* LivesManagementNode.swift in Sources */,
+				24CD5CD21D946218005A1AFB /* WinNode.swift in Sources */,
+				2412674C1DC9B29F00830CA9 /* Garbage.swift in Sources */,
 				0540FC051C99EAF500FB6927 /* PathSegment.swift in Sources */,
+				24BF21FE1DBFEB98003D92EF /* Request.swift in Sources */,
 				24E968621CC58C340042FB79 /* Person.swift in Sources */,
 				0567EDEE1C89189100729F98 /* ImageManager.swift in Sources */,
 			);
@@ -337,28 +833,68 @@
 		};
 		0567EDEB1C890C6A00729F98 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C70EDD30FDC6B831EABE023 /* Pods-Crazy Traffic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 537E9MH96M;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Crazy\\ Traffic",
+					"$(PROJECT_DIR)/Crazy\\ Traffic",
+					"$(PROJECT_DIR)/Crazy\\ Traffic",
+				);
 				INFOPLIST_FILE = "Crazy Traffic/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Crazy\\ Traffic",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "toiavalle.Crazy-Traffic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Crazy Traffic/Crazy Traffic-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		0567EDEC1C890C6A00729F98 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0278D6F0D72763D704FA0FC6 /* Pods-Crazy Traffic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 537E9MH96M;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Crazy\\ Traffic",
+					"$(PROJECT_DIR)/Crazy\\ Traffic",
+					"$(PROJECT_DIR)/Crazy\\ Traffic",
+				);
 				INFOPLIST_FILE = "Crazy Traffic/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Crazy\\ Traffic",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "toiavalle.Crazy-Traffic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Crazy Traffic/Crazy Traffic-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

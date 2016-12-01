@@ -1,0 +1,90 @@
+{
+	"levelNum": 36,
+	"goal": 25,
+	"pedGoal": 0,
+	"carGoal": 0,
+	"tutorialText": "Slide cars forward to go faster \n Touch cars or pedestrians make them stop \n Don't let the cars crash",
+	"rows": 64,
+	"cols": 112,
+	"backgroundColor": "#000000",
+	"speedMult": 1.1,
+	"intervalMult": 0.9,
+	"paths": [{
+		"type": "Road",
+		"initMaxInterval": "14",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{60,76}", "{60,-12}"]
+		]
+	}, {
+		"type": "Road",
+		"initMaxInterval": "14",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{52,76}", "{-12,32}", "{54,20}", "{60,33}"]
+		]
+	}, {
+		"type": "Road",
+		"initMaxInterval": "14",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{52,-12}", "{124,34}", "{56,35}", "{35,37}"]
+		]
+	}, {
+		"type": "Road",
+		"initMaxInterval": "14",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{-12,-12}", "{123,76}"]
+		]
+	}, {
+		"type": "CrazyPed",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "65.0",
+		"maxSpeed": "75.0",
+		"segments": [
+			["{-12,76}", "{123,-12}"]
+		]
+	}, {
+		"type": "CrazyPed",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "65.0",
+		"maxSpeed": "75.0",
+		"segments": [
+			["{36,-12}", "{124,52}", "{45,40}"]
+		]
+	}, {
+		"type": "CrazyPed",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "65.0",
+		"maxSpeed": "75.0",
+		"segments": [
+			["{72,76}", "{124,16}", "{71,10}"]
+		]
+	}]
+}

@@ -11,28 +11,9 @@ import SpriteKit
 
 class Car: PathFollower {
     
-    init(level: LevelNode, pathIndex: Int) {
-        var speed: CGFloat = 0
-        if VARIABLE_CAR_SPEED == true {
-            switch Useful.random(min: 1, max: 5) {
-            case 1:
-                speed = CAR_1_SPEED
-            case 2:
-                speed = CAR_2_SPEED
-            case 3:
-                speed = CAR_3_SPEED
-            case 4:
-                speed = CAR_4_SPEED
-            case 5:
-                speed = CAR_5_SPEED
-            default:
-                speed = CAR_SPEED
-            }
-        } else {
-            speed = CAR_SPEED
-        }
-        
-        let physicsPath = UIBezierPath(roundedRect: CGRectMake(-20, -29, 34, 60), cornerRadius: 12)
+    init(level: LevelNode, pathIndex: Int, speed: CGFloat) {
+        let speed: CGFloat = speed
+        let physicsPath = UIBezierPath(roundedRect: CGRect(x: -15.5, y: -29, width: 31, height: 58), cornerRadius: 12)
         let categoryBitMask = CollisionTypeCar
         let contactTestBitMask = CollisionTypeLevelBorder | CollisionTypeCar
         
@@ -43,8 +24,8 @@ class Car: PathFollower {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func update(time: CFTimeInterval) {
-        self.level.enumerateChildNodesWithName("path_follower") { node, stop in
+    override func update(_ time: CFTimeInterval) {
+        self.level.enumerateChildNodes(withName: "path_follower") { node, stop in
             let pathFollower = node as! PathFollower
             if pathFollower.pathIndex == self.pathIndex {
                 if pathFollower.id < self.id {

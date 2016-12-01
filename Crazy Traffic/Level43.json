@@ -1,0 +1,135 @@
+{
+    "levelNum": 43,
+    "goal": 25,
+    "pedGoal": 0,
+    "carGoal": 0,
+    "tutorialText": "Slide cars forward to go faster \n Touch cars or pedestrians make them stop \n Don't let the cars crash \n collect plastic bags for extra points",
+    "rows": 64,
+    "cols": 112,
+    "backgroundColor": "#000000",
+    "speedMult": 1.1,
+    "intervalMult": 0.9,
+    "paths": [{
+              "type": "Road",
+              "hidden": "0",
+              "initMaxInterval": "8",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "4",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{-8,72}", "{56,49}", "{18,9}", "{36,55}"],
+                           ["{56,49}", "{124,28}", "{72,45}", "{56,1}"]
+                           ]
+              }, {
+              "type": "Road",
+              "hidden": "0",
+              "initMaxInterval": "8",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "4",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{126,20}", "{53,35}", "{56,-8}", "{64,29}"],
+                           ["{53,35}", "{-16,64}", "{40,42}", "{18,0}"]
+                           ]
+              }, {
+              "type": "Road",
+              "hidden": "0",
+              "initMaxInterval": "8",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "4",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{-9,16}", "{121,64}", "{76,8}", "{22,64}"]
+                           ]
+              }, {
+              "type": "Road",
+              "hidden": "0",
+              "initMaxInterval": "8",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "4",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{122,56}", "{-10,8}", "{35,58}", "{73,-6}"]
+                           ]
+              }, {
+              "type": "Walk",
+              "hidden": "0",
+              "initMaxInterval": "8",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "4",
+              "minIntervalLimit": "2",
+              "initSpeed": "65.0",
+              "maxSpeed": "75.0",
+              "segments": [
+                           ["{43,77}", "{67,-12}"]
+                           ]
+              }, {
+              "type": "CrossWalk",
+              "hidden": "0",
+              "initMaxInterval": "15",
+              "initMinInterval": "5",
+              "maxIntervalLimit": "7",
+              "minIntervalLimit": "3",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{57,25}", "{50,53}"]
+                           ]
+              }, {
+              "type": "Garbage",
+              "hidden": "0",
+              "initMaxInterval": "40",
+              "initMinInterval": "20",
+              "maxIntervalLimit": "35",
+              "minIntervalLimit": "20",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{4,76}", "{73,76}", "{9,24}", "{53,66}"]
+                           ]
+              }, {
+              "type": "Garbage",
+              "hidden": "0",
+              "initMaxInterval": "40",
+              "initMinInterval": "20",
+              "maxIntervalLimit": "35",
+              "minIntervalLimit": "20",
+              "initSpeed": "150.0",
+              "maxSpeed": "150.0",
+              "segments": [
+                           ["{120,48}", "{45,-5}", "{90,46}", "{71,1}"]
+                           ]
+              }, {
+              "type": "Garbage",
+              "hidden": "0",
+              "initMaxInterval": "40",
+              "initMinInterval": "20",
+              "maxIntervalLimit": "35",
+              "minIntervalLimit": "20",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{-8,32}", "{36,-8}", "{53,13}"]
+                           ]
+              }, {
+              "type": "Garbage",
+              "hidden": "0",
+              "initMaxInterval": "40",
+              "initMinInterval": "20",
+              "maxIntervalLimit": "35",
+              "minIntervalLimit": "20",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{84,68}", "{120,44}", "{87,42}"]
+                           ]
+              }]
+}

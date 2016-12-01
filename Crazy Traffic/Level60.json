@@ -1,0 +1,229 @@
+{
+	"levelNum": 60,
+	"goal": 60,
+	"pedGoal": 0,
+	"carGoal": 0,
+	"tutorialText": "Slide cars forward to go faster \n Touch cars or pedestrians make them stop \n Don't let the cars crash",
+	"rows": 64,
+	"cols": 112,
+	"backgroundColor": "#000000",
+	"speedMult": 1.1,
+	"intervalMult": 0.9,
+	"paths": [{
+		"type": "Road",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{-12,32}", "{124,32}"]
+		]
+	}, {
+		"type": "Road",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{124,40}", "{-12,40}"]
+		]
+	}, {
+		"type": "Road",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{124,24}", "{-12,24}"]
+		]
+	}, {
+		"type": "Road",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{56,76}", "{56,-12}"]
+		]
+	}, {
+		"type": "Road",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{64,-12}", "{64,76}"]
+		]
+	}, {
+		"type": "Road",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{48,-12}", "{48,76}"]
+		]
+	}, {
+		"type": "Road",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{40,77}", "{40,-12}"]
+		]
+	}, {
+		"type": "Road",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{72,76}", "{72,-12}"]
+		]
+	}, {
+		"type": "Road",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{80,-12}", "{80,76}"]
+		]
+	}, {
+		"type": "Road",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{32,76}", "{32,-12}"]
+		]
+	}, {
+		"type": "Walk",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "65.0",
+		"maxSpeed": "75.0",
+		"segments": [
+			["{-12,48}", "{125,48}"]
+		]
+	}, {
+		"type": "Walk",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "65.0",
+		"maxSpeed": "75.0",
+		"segments": [
+			["{-12,16}", "{124,16}"]
+		]
+	}, {
+		"type": "Walk",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "65.0",
+		"maxSpeed": "75.0",
+		"segments": [
+			["{24,76}", "{24,-13}"]
+		]
+	}, {
+		"type": "Walk",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "65.0",
+		"maxSpeed": "75.0",
+		"segments": [
+			["{88,-12}", "{88,76}"]
+		]
+	}, {
+		"type": "CrossWalk",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{24,21}", "{24,43}"]
+		]
+	}, {
+		"type": "CrossWalk",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{88,21}", "{88,43}"]
+		]
+	}, {
+		"type": "CrossWalk",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{29,48}", "{83,48}"]
+		]
+	}, {
+		"type": "CrossWalk",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{29,16}", "{83,16}"]
+		]
+	}]
+}

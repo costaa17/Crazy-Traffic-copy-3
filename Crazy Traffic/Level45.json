@@ -1,0 +1,197 @@
+{
+	"levelNum": 45,
+	"goal": 20,
+	"pedGoal": 10,
+	"carGoal": 0,
+	"tutorialText": "Slide cars forward to go faster \n Touch cars or pedestrians make them stop \n Don't let the cars crash \n collect plastic bags for extra points",
+	"rows": 64,
+	"cols": 112,
+	"backgroundColor": "#000000",
+	"speedMult": 1.1,
+	"intervalMult": 0.9,
+	"paths": [{
+		"type": "Road",
+		"hidden": "0",
+		"initMaxInterval": "10",
+		"initMinInterval": "3",
+		"maxIntervalLimit": "5",
+		"minIntervalLimit": "2",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{-12,60}", "{60,32}", "{18,60}", "{44,32}"], 
+			["{60,32}", "{124,32}"]
+		]
+	}, {
+		"type": "Road",
+		"hidden": "0",
+              "initMaxInterval": "10",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "5",
+              "minIntervalLimit": "2",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{-12,44}", "{60,32}", "{7,49}", "{45,32}"], 
+			["{60,32}", "{124,32}"]
+		]
+	}, {
+		"type": "Road",
+		"hidden": "0",
+              "initMaxInterval": "10",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "5",
+              "minIntervalLimit": "2",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{-12,32}", "{124,32}"]
+		]
+	}, {
+		"type": "Road",
+		"hidden": "0",
+              "initMaxInterval": "10",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "5",
+              "minIntervalLimit": "2",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{-12,4}", "{60,32}", "{18,2}", "{41,32}"], 
+			["{60,32}", "{124,32}"]
+		]
+	}, {
+		"type": "Road",
+		"hidden": "0",
+              "initMaxInterval": "10",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "5",
+              "minIntervalLimit": "2",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{-12,20}", "{60,32}", "{7,15}", "{45,32}"], 
+			["{60,32}", "{124,32}"]
+		]
+	}, {
+		"type": "Walk",
+		"hidden": "0",
+		"initMaxInterval": "12",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "65.0",
+		"maxSpeed": "75.0",
+		"segments": [
+			["{68,76}", "{68,-12}"]
+		]
+	}, {
+		"type": "Walk",
+		"hidden": "0",
+		"initMaxInterval": "12",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "65.0",
+		"maxSpeed": "75.0",
+		"segments": [
+			["{84,-12}", "{84,76}"]
+		]
+	}, {
+		"type": "Walk",
+		"hidden": "0",
+		"initMaxInterval": "12",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "65.0",
+		"maxSpeed": "75.0",
+		"segments": [
+			["{100,76}", "{100,-12}"]
+		]
+	}, {
+		"type": "CrossWalk",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{68,35}", "{68,29}"]
+		]
+	}, {
+		"type": "CrossWalk",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{84,29}", "{84,35}"]
+		]
+	}, {
+		"type": "CrossWalk",
+		"hidden": "0",
+		"initMaxInterval": "15",
+		"initMinInterval": "5",
+		"maxIntervalLimit": "7",
+		"minIntervalLimit": "3",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{100,35}", "{100,29}"]
+		]
+	}, {
+		"type": "Garbage",
+		"hidden": "0",
+		"initMaxInterval": "40",
+		"initMinInterval": "25",
+		"maxIntervalLimit": "40",
+		"minIntervalLimit": "25",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{12,73}", "{64,72}", "{30,26}", "{63,45}"]
+		]
+	}, {
+		"type": "Garbage",
+		"hidden": "0",
+		"initMaxInterval": "40",
+		"initMinInterval": "25",
+		"maxIntervalLimit": "40",
+		"minIntervalLimit": "25",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{48,-4}", "{116,24}", "{52,18}", "{105,9}"]
+		]
+	}, {
+		"type": "Garbage",
+		"hidden": "0",
+		"initMaxInterval": "40",
+		"initMinInterval": "25",
+		"maxIntervalLimit": "40",
+		"minIntervalLimit": "25",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{-4,28}", "{20,-8}", "{35,13}"]
+		]
+	}, {
+		"type": "Garbage",
+		"hidden": "0",
+		"initMaxInterval": "40",
+		"initMinInterval": "25",
+		"maxIntervalLimit": "40",
+		"minIntervalLimit": "25",
+		"initSpeed": "85.0",
+		"maxSpeed": "100.0",
+		"segments": [
+			["{92,72}", "{116,40}", "{102,39}"]
+		]
+	}]
+}

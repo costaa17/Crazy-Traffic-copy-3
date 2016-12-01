@@ -1,14 +1,5 @@
 #import "UIBezierPath+Length.h"
 
-typedef struct BezierSubpath {
-    CGPoint startPoint;
-    CGPoint controlPoint1;
-    CGPoint controlPoint2;
-    CGPoint endPoint;
-    CGFloat length;
-    CGPathElementType type;
-} BezierSubpath;
-
 typedef void(^BezierSubpathEnumerator)(const CGPathElement *element);
 
 static void bezierSubpathFunction(void *info, CGPathElement const *element) {
@@ -149,7 +140,34 @@ static void bezierSubpathFunction(void *info, CGPathElement const *element) {
 	}
 	return length;
 }
-
+- (BezierSubpath)pathAtPercentOfLength:(CGFloat)percent tangent:(CGFloat *)tan {
+    if (percent < 0.0f) {
+        percent = 0.0f;
+    } else if (percent > 1.0f) {
+        percent = 1.0f;
+    }
+    NSUInteger subpathCount = [self countSubpaths];
+    BezierSubpath subpaths[subpathCount];
+    [self extractSubpaths:subpaths];
+    
+    CGFloat length = 0.0f;
+    for (NSUInteger i = 0; i < subpathCount; i++) {
+        length += subpaths[i].length;
+    }
+    CGFloat pointLocationInPath = length * percent;
+    CGFloat currentLength = 0;
+    BezierSubpath subpathContainingPoint;
+    for (NSUInteger i = 0; i < subpathCount; i++) {
+        if (currentLength + subpaths[i].length >= pointLocationInPath) {
+            subpathContainingPoint = subpaths[i];
+            break;
+        } else {
+            currentLength += subpaths[i].length;
+        }
+    }
+    
+    return subpathContainingPoint;
+}
 - (CGPoint)pointAtPercentOfLength:(CGFloat)percent tangent:(CGFloat *)tan {
 	
 	if (percent < 0.0f) {
@@ -166,7 +184,6 @@ static void bezierSubpathFunction(void *info, CGPathElement const *element) {
 	for (NSUInteger i = 0; i < subpathCount; i++) {
 		length += subpaths[i].length;
 	}
-	
     CGFloat pointLocationInPath = length * percent;
     CGFloat currentLength = 0;
     BezierSubpath subpathContainingPoint;
@@ -204,7 +221,7 @@ CGFloat quadCurveLength(CGPoint fromPoint, CGPoint toPoint, CGPoint controlPoint
     int iterations = 100;
     CGFloat length = 0;
     
-    for (int idx=0; idx < iterations; idx++) {
+    for (int idx = 0; idx < iterations; idx++) {
         float t = idx * (1.0 / iterations);
         float tt = t + (1.0 / iterations);
         
@@ -274,7 +291,11 @@ CGFloat cubicTangent(CGFloat t, CGPoint start, CGPoint c1, CGPoint c2, CGPoint e
     CGFloat y = CubicTangent(t, start.y, c1.y, c2.y, end.y);
     return atan2(y, x)-M_PI/2;
 }
-
+- (float) quadTan:(CGFloat) t a:(CGPoint) start b:(CGPoint) c1 c:(CGPoint) end{
+    CGFloat x = QuadT(t, start.x, c1.x, end.x);
+    CGFloat y = QuadT(t, start.y, c1.y, end.y);
+    return atan2(y, x)-M_PI/2;
+}
 /*
  *  http://ericasadun.com/2013/03/25/calculating-bezier-points/
  */
@@ -318,6 +339,14 @@ float QuadTangent(float t, float start, float c1, float end) {
 
 float LinearTangent(float t, float start, float end) {
     return end - start;
+}
+
+float QuadT(float t, float A, float B, float C){
+    return  t*(2*A - 4*B + 2*C) + (-2*A + 2*B);
+}
+
+float CubicTan(float t, float A, float B, float C, float D) {
+    return pow(t,2)*(-3*A + 9*B - 9*C + 3*D) + t*(6*A - 12*B + 6*C) + (-3*A + 3*B);
 }
 
 @end

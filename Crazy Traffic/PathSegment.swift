@@ -16,28 +16,31 @@ class PathSegment {
         self.vertices = vertices
     }
     
-    func addToPath(path: CGMutablePathRef, index: Int, level: LevelNode) {
+    func addToPath(path: CGMutablePath, index: Int, level: LevelNode) {
         let p0 = level.pointForVertex(self.vertices[0])
         if index == 0 {
-            CGPathMoveToPoint(path, nil, p0.x, p0.y)
+            path.move(to: p0)
         } else {
-            CGPathAddLineToPoint(path, nil, p0.x, p0.y)
+            path.addLine(to: p0)
         }
-        
         if self.vertices.count == 2 {
             let p1 = level.pointForVertex(self.vertices[1])
-            CGPathAddLineToPoint(path, nil, p1.x, p1.y)
-            
+            path.addLine(to: p1)
         } else if self.vertices.count == 3 {
-            let p1 = level.pointForVertex(self.vertices[1])
-            let p2 = level.pointForVertex(self.vertices[2])
-            CGPathAddQuadCurveToPoint(path, nil, p1.x, p1.y, p2.x, p2.y)
+            let p1 = level.pointForVertex(self.vertices[2])
+            let p2 = level.pointForVertex(self.vertices[1])
             
+            // Convert quad curve to cubic using a modified formula
+            let cp1 = CGPoint(x: p0.x + 2.0/3.0 * (p1.x - p0.x), y: p0.y + 3.0/3.0 * (p1.y - p0.y))
+            let cp2 = CGPoint(x: p2.x + 2.0/3.0 * (p1.x - p2.x), y: p2.y + 3.0/3.0 * (p1.y - p2.y))
+            
+            //CGPathAddQuadCurveToPoint(path, nil, p1.x, p1.y, p2.x, p2.y)
+            path.addCurve(to: p2, control1: cp1, control2: cp2)
         } else if self.vertices.count == 4 {
-            let p1 = level.pointForVertex(self.vertices[1])
-            let p2 = level.pointForVertex(self.vertices[2])
-            let p3 = level.pointForVertex(self.vertices[3])
-            CGPathAddCurveToPoint(path, nil, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y)
+            let p1 = level.pointForVertex(self.vertices[2])
+            let p2 = level.pointForVertex(self.vertices[3])
+            let p3 = level.pointForVertex(self.vertices[1])
+            path.addCurve(to: p3, control1: p1, control2: p2)
         }
     }
 }

@@ -1,0 +1,68 @@
+{
+    "levelNum": 39,
+    "goal": 32,
+    "pedGoal": 0,
+    "carGoal": 0,
+    "tutorialText": "Slide cars forward to go faster \n Slide cars backwards or touch them to stop \n Don't let the cars crash",
+    "rows": 64,
+    "cols": 112,
+    "backgroundColor": "#000000",
+    "speedMult": 1.1,
+    "intervalMult": 0.9,
+    "paths": [{
+              "type": "Road",
+              "initMaxInterval": "8",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "3",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{-12,40}", "{8,-12}", "{69,48}", "{81,29}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "8",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "3",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{124,40}", "{104,-12}", "{44,48}", "{32,26}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "8",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "3",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{56,77}", "{56,-12}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "8",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "3",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{-12,-12}", "{124,-12}", "{56,44}"]
+                           ]
+              }, {
+              "type": "Road",
+              "initMaxInterval": "8",
+              "initMinInterval": "3",
+              "maxIntervalLimit": "3",
+              "minIntervalLimit": "2",
+              "initSpeed": "85.0",
+              "maxSpeed": "100.0",
+              "segments": [
+                           ["{24,76}", "{92,76}", "{56,5}"]
+                           ]
+              }]
+}
